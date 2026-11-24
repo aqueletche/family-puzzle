@@ -1,12 +1,19 @@
-import os
-src='src'
-css=open(f'{src}/style.css').read()
-matter=open('node_modules/matter-js/build/matter.min.js').read().replace('</script','<\\/script')
-js='\n'.join(open(f'{src}/{f}').read() for f in ['core.js','home.js','m_jigsaw.js','m_screws.js','m_arrows.js','m_blocks.js','m_logic.js','m_logic2.js','m_physics.js','m_words.js','m_trivia_data.js','m_trivia.js'])
-import base64, urllib.parse, shutil
-svgicon=open('icon/icon.svg').read()
-icon="data:image/svg+xml,"+urllib.parse.quote(svgicon)
-apple="data:image/png;base64,"+base64.b64encode(open('icon/icon-180.png','rb').read()).decode()
+# Gera o jogo (index.html + PWA) a partir dos fontes desta pasta.
+# Uso: python fonte/build.py   (na raiz do repositório)
+import os, base64, urllib.parse, shutil, time
+SRC = os.path.dirname(os.path.abspath(__file__))   # pasta fonte/
+OUT = os.path.dirname(SRC)                          # raiz do repositório
+ICON = os.path.join(SRC, 'icon')
+rd = lambda p: open(p, encoding='utf-8').read()
+def wr(name, txt):
+    with open(os.path.join(OUT, name), 'w', encoding='utf-8', newline='\n') as f: f.write(txt)
+css = rd(os.path.join(SRC, 'style.css'))
+matter = rd(os.path.join(SRC, 'vendor', 'matter.min.js')).replace('</script', '<\\/script')
+FILES = ['core.js', 'home.js', 'm_jigsaw.js', 'm_screws.js', 'm_arrows.js', 'm_blocks.js', 'm_logic.js', 'm_logic2.js', 'm_physics.js', 'm_words.js', 'm_trivia_data.js', 'm_trivia.js']
+js = '\n'.join(rd(os.path.join(SRC, f)) for f in FILES)
+svgicon = rd(os.path.join(ICON, 'icon.svg'))
+icon = "data:image/svg+xml," + urllib.parse.quote(svgicon)
+apple = "data:image/png;base64," + base64.b64encode(open(os.path.join(ICON, 'icon-180.png'), 'rb').read()).decode()
 html=f'''<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -35,9 +42,8 @@ if ('serviceWorker' in navigator && location.protocol.startsWith('http') && !/cl
 </script>
 </body>
 </html>'''
-os.makedirs('dist',exist_ok=True)
-open('dist/index.html','w').write(html)
-open('dist/manifest.json','w').write('''{
+wr('index.html', html)
+wr('manifest.json', '''{
   "name": "Family Puzzle",
   "short_name": "Family Puzzle",
   "start_url": "./index.html",
@@ -52,11 +58,11 @@ open('dist/manifest.json','w').write('''{
   ]
 }
 ''')
-open('dist/sw.js','w').write('''const C = 'familypuzzle-%s';
+wr('sw.js', '''const C = 'familypuzzle-%s';
 self.addEventListener('install', e => { e.waitUntil(caches.open(C).then(c => c.addAll(['./', './index.html', './manifest.json', './icon.svg', './icon-192.png', './icon-512.png']))); self.skipWaiting(); });
 self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== C).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => { e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).then(res => { const cp = res.clone(); caches.open(C).then(c => c.put(e.request, cp)); return res; }))); });
-''' % __import__('time').strftime('%Y%m%d%H%M'))
-open('dist/icon.svg','w').write(svgicon)
-for s in (192,512): shutil.copy(f'icon/icon-{s}.png', f'dist/icon-{s}.png')
-print(len(html))
+''' % time.strftime('%Y%m%d%H%M'))
+wr('icon.svg', svgicon)
+for s in (192, 512): shutil.copy(os.path.join(ICON, f'icon-{s}.png'), os.path.join(OUT, f'icon-{s}.png'))
+print('OK:', os.path.join(OUT, 'index.html'), len(html), 'bytes')
