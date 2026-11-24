@@ -128,6 +128,108 @@ button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulat
 .tv-a.w{background:#e23b5a;color:#fff;border-color:#a3203a}
 .tv-timer{height:8px;border-radius:9px;background:#f3c1d6;overflow:hidden}
 .tv-timer div{height:100%;background:#c2185b;transition:width .2s linear}
+
+.tabs.subs .tab{padding:8px 2px;line-height:1.15}
+
+/* ===== TELA INICIAL v2 (cartas) ===== */
+.hb{background:radial-gradient(circle at 25% 8%,rgba(255,120,170,.75) 0,transparent 42%),radial-gradient(circle at 95% 55%,rgba(124,107,255,.8) 0,transparent 48%),radial-gradient(circle at 0% 95%,rgba(0,200,220,.35) 0,transparent 40%),#24175e;color:#fff}
+.hb-body{flex:1;min-height:0;display:flex;flex-direction:column;padding-bottom:92px}
+.hb-hello,.hb-stats,.hb-daily,.dots,.hb-title{flex:none}
+.hb-hello{display:flex;align-items:flex-start;justify-content:space-between;padding:18px 20px 0;padding-top:max(18px,env(safe-area-inset-top))}
+.hb-hello small{opacity:.8;font-size:14px;font-weight:600}
+.hb-hello h2{margin:2px 0 0;font-size:27px;font-weight:900;line-height:1.08;letter-spacing:-.5px}
+.hb-ava{width:50px;height:50px;border-radius:18px;background:rgba(255,255,255,.18);font-size:28px;display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.35)}
+.hb-stats{display:flex;gap:8px;padding:12px 20px 0}
+.hb-stats>*{background:rgba(255,255,255,.14);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:14px;padding:8px 11px;font-size:12.5px;font-weight:700;white-space:nowrap}
+.hb-stats b{font-weight:900}
+.hb-daily{margin:12px 20px 0;border-radius:22px;padding:11px 14px;background:linear-gradient(90deg,#ffd23f,#ff7a59);color:#3a1600;display:flex;align-items:center;gap:11px;text-align:left;box-shadow:0 5px 0 rgba(0,0,0,.25);position:relative;overflow:hidden}
+.hb-daily::after{content:"";position:absolute;top:0;bottom:0;width:35%;left:-40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:shine 3s infinite}
+@keyframes shine{0%{left:-40%}60%,100%{left:130%}}
+.hb-daily:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.25)}
+.hb-daily.done{background:linear-gradient(90deg,#7be0a8,#3ecf8e);color:#063b22}
+.hb-daily .gift{font-size:32px;animation:bob 2.4s ease-in-out infinite}
+.hb-daily .txt{flex:1;min-width:0}
+.hb-daily b{display:block;font-size:16px;font-weight:900}
+.hb-daily small{font-size:11.5px;font-weight:700;opacity:.8}
+.hb-daily .mini{display:flex;gap:4px;margin:3px 0 1px}
+.hb-daily .mini span{width:26px;height:26px;border-radius:9px;background:rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;font-size:15px;position:relative}
+.hb-daily .mini span.ok::after{content:"✔";position:absolute;right:-4px;bottom:-4px;background:#1f9e63;color:#fff;border-radius:50%;width:14px;height:14px;font-size:9px;display:flex;align-items:center;justify-content:center}
+.hb-daily .go{background:#3a1600;color:#fff;border-radius:13px;padding:9px 12px;font-weight:900;font-size:13px}
+@keyframes bob{50%{transform:translateY(-5px)}}
+.deck{flex:1;min-height:0;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-top:16px;padding-bottom:10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.deck::-webkit-scrollbar{display:none}
+.gcard{flex:none;scroll-snap-align:center;border-radius:30px;padding:16px 16px 14px;display:flex;flex-direction:column;box-shadow:0 16px 30px rgba(0,0,0,.35),inset 0 2px 0 rgba(255,255,255,.3);cursor:pointer;transition:transform .08s linear,opacity .08s linear;position:relative;overflow:hidden}
+.gcard::before{content:"";position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.14);top:-60px;right:-50px}
+.gcard .em{font-size:clamp(56px,13vh,96px);line-height:1;margin:2px 0 8px;filter:drop-shadow(0 8px 6px rgba(0,0,0,.25));animation:bob2 3s ease-in-out infinite;align-self:flex-start}
+@keyframes bob2{50%{transform:translateY(6px) rotate(4deg)}}
+.gcard h3{margin:0;font-size:24px;font-weight:900;letter-spacing:-.3px}
+.gcard p{margin:4px 0 0;font-size:12.5px;opacity:.92;flex:1;line-height:1.35}
+.gcard .meta{display:flex;justify-content:space-between;font-weight:900;font-size:13px;margin:8px 0 6px}
+.gcard .meta span{background:rgba(0,0,0,.2);border-radius:99px;padding:2px 9px;font-size:11px}
+.gcard .bar{height:8px;border-radius:9px;background:rgba(0,0,0,.22);overflow:hidden}
+.gcard .bar i{display:block;height:100%;background:#fff;border-radius:9px;min-width:8px}
+.gcard .medal{font-size:10.5px;font-weight:700;opacity:.85;margin:4px 0 10px}
+.gcard .btn{background:#fff;color:#24175e;border-radius:16px;padding:12px 8px;font-weight:900;font-size:15px;box-shadow:0 4px 0 rgba(0,0,0,.2)}
+.gcard .btn:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.dots{display:flex;gap:6px;justify-content:center;padding:2px 0 4px}
+.dots i{width:7px;height:7px;border-radius:9px;background:rgba(255,255,255,.35);transition:width .2s;cursor:pointer}
+.dots i.on{width:22px;background:#fff}
+.tabbar{position:absolute;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));height:66px;border-radius:26px;background:rgba(255,255,255,.96);display:flex;align-items:center;justify-content:space-around;color:#24175e;box-shadow:0 10px 30px rgba(0,0,0,.3);z-index:10}
+.tabbar .tb{background:none;text-align:center;font-size:10.5px;font-weight:800;opacity:.5;padding:4px 2px;min-width:56px}
+.tabbar .tb.on{opacity:1}
+.tabbar .tb span{display:block;font-size:22px;line-height:1.15}
+.tabbar .fab{width:62px;height:62px;margin-top:-36px;border-radius:50%;background:linear-gradient(180deg,#3ecf8e,#1f9e63);color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(31,158,99,.55);border:4px solid #fff}
+.tabbar .fab:active{transform:scale(.92)}
+.hb-title{padding:22px 20px 8px;padding-top:max(22px,env(safe-area-inset-top))}
+.hb-title h2{margin:0;font-size:26px;font-weight:900}
+.hb-title small{opacity:.8;font-weight:600}
+.hb-scroll{flex:1;overflow-y:auto;padding:6px 16px 20px}
+.achs{display:flex;flex-direction:column;gap:9px}
+.ach{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.1);border-radius:18px;padding:10px 12px}
+.ach .ic{font-size:30px;width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;filter:grayscale(1);opacity:.6}
+.ach.ok{background:linear-gradient(90deg,rgba(255,210,63,.3),rgba(255,122,89,.22))}
+.ach.ok .ic{filter:none;opacity:1;background:#ffd23f}
+.ach .tx{flex:1;min-width:0}
+.ach b{display:block;font-size:15px}
+.ach small{font-size:12px;opacity:.8}
+.ach .bar{height:6px;border-radius:9px;background:rgba(0,0,0,.25);overflow:hidden;margin-top:5px}
+.ach .bar i{display:block;height:100%;background:#ffd23f}
+.ach .cnt{font-weight:900;font-size:13px;opacity:.9}
+.fam{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.prof{position:relative;background:rgba(255,255,255,.12);border-radius:22px;padding:16px 10px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px;color:#fff;cursor:pointer;border:3px solid transparent}
+.prof.on{background:rgba(255,255,255,.22);border-color:#ffd23f}
+.prof .av{font-size:46px;line-height:1.1}
+.prof b{font-size:16px}
+.prof small{font-size:12px;opacity:.85}
+.prof .now{margin-top:4px;font-size:10.5px;font-weight:900;background:#ffd23f;color:#3a2300;border-radius:99px;padding:3px 8px}
+.prof .now.off{background:rgba(255,255,255,.18);color:#fff}
+.prof .ed{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:10px;background:rgba(255,255,255,.2);font-size:15px}
+.prof.add{border:3px dashed rgba(255,255,255,.35);background:none;justify-content:center;min-height:150px}
+.inp{width:100%;font:inherit;font-size:18px;font-weight:800;padding:12px 14px;border-radius:14px;border:2px solid #d9d2ff;color:#24175e;margin:6px 0 10px;outline:none}
+.inp:focus{border-color:#7c6bff}
+.avs{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-bottom:14px}
+.avs button{font-size:24px;aspect-ratio:1;border-radius:12px;background:#f1eeff}
+.avs button.on{background:#ffd23f;box-shadow:0 0 0 3px #24175e}
+.card .danger{margin-top:12px;background:none;color:#e23b5a;font-weight:800;font-size:14px}
+.card .row button.pri.red{background:#e23b5a;box-shadow:0 4px 0 #a3203a}
+.sets{display:flex;flex-direction:column;gap:9px}
+.set{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.12);border-radius:18px;padding:15px 16px;font-weight:800;font-size:15px;color:#fff;text-align:left}
+.set.col{flex-direction:column;align-items:stretch;gap:10px}
+.sw{width:48px;height:28px;border-radius:99px;background:rgba(255,255,255,.25);position:relative;flex:none;transition:background .2s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:left .2s}
+.sw.on{background:#3ecf8e}.sw.on::after{left:23px}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;padding:9px 4px;border-radius:12px;background:rgba(255,255,255,.15);font-weight:800}
+.seg button.on{background:#fff;color:#24175e}
+.about{text-align:center;margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:4px;opacity:.9}
+.about img{width:64px;height:64px;margin-bottom:4px}
+.about small{font-size:12px;opacity:.8;max-width:260px}
+@media (max-height:620px){
+.hb-hello h2{font-size:22px}.hb-hello h2 br{display:none}
+.hb-stats{padding-top:8px}.hb-daily{margin-top:8px;padding:8px 12px}.hb-daily .gift{font-size:26px}
+.gcard p,.gcard .medal{display:none}.gcard .bar{margin-bottom:10px}.gcard .em{font-size:52px}.gcard h3{font-size:21px}
+.deck{padding-top:10px}.gcard{padding:12px 14px}
+}
 </style>
 </head>
 <body>
@@ -168,24 +270,54 @@ function makeRng(seed) {
 }
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
-/* ===================== ARMAZENAMENTO ===================== */
+/* ===================== ARMAZENAMENTO (perfis da família) ===================== */
+const AVATARS = ['🦁', '🐼', '🐸', '🦊', '🐯', '🐨', '🐵', '🦄', '🐙', '🐧', '🐢', '🦖', '🐝', '🐬', '🦉', '🐶', '🐱', '🐰'];
+const todayStr = (d = new Date()) => d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+const dayNum = (s = todayStr()) => Math.round(new Date(s + 'T12:00:00').getTime() / 864e5);
+const newProfile = (name, avatar) => ({ name, avatar, stars: {}, diff: 0, sub: {}, seenQ: {}, bonus: 0, streak: 0, lastDay: '', daily: null, dailyDone: 0, bestStreak: 0, ach: [], wins: {}, created: Date.now() });
 const Store = {
   key: 'quebracuca.v1',
-  data: { stars: {}, sound: true, diff: 0 },
-  load() { try { const d = JSON.parse(localStorage.getItem(this.key)); if (d) Object.assign(this.data, d); } catch (e) {} },
-  save() { try { localStorage.setItem(this.key, JSON.stringify(this.data)); } catch (e) {} },
+  root: { v: 2, active: 'p1', profiles: { p1: newProfile('Família', '🦁') }, sound: true, vibe: true },
+  get data() { return this.root.profiles[this.root.active]; },
+  load() {
+    let d = null; try { d = JSON.parse(localStorage.getItem(this.key)); } catch (e) {}
+    if (d && d.v === 2 && d.profiles) this.root = d;
+    else if (d && d.stars) { // v1: progresso único -> primeiro perfil
+      const p = Object.assign(newProfile('Família', '🦁'), { stars: d.stars, diff: d.diff || 0, sub: d.sub || {}, seenQ: d.seenQ || {} });
+      this.root = { v: 2, active: 'p1', profiles: { p1: p }, sound: d.sound !== false, vibe: true };
+    }
+    if (!this.root.profiles[this.root.active]) this.root.active = Object.keys(this.root.profiles)[0];
+    for (const p of Object.values(this.root.profiles)) {
+      Object.keys(newProfile()).forEach(k => { if (p[k] === undefined) p[k] = newProfile()[k]; });
+      // Lógica antiga alternava Sudoku (ímpares) e Luzes (pares)
+      for (const k of Object.keys(p.stars)) {
+        const m = k.match(/^logic:(\d):(\d+)$/); if (!m) continue;
+        const l = +m[2], nk = l % 2 ? `sudoku:${m[1]}:${(l + 1) / 2}` : `lights:${m[1]}:${l / 2}`;
+        p.stars[nk] = Math.max(p.stars[nk] || 0, p.stars[k]); delete p.stars[k];
+      }
+    }
+    this.save();
+  },
+  save() { try { localStorage.setItem(this.key, JSON.stringify(this.root)); } catch (e) {} },
   k(m, d, l) { return m + ':' + d + ':' + l; },
   stars(m, d, l) { return this.data.stars[this.k(m, d, l)] || 0; },
   setStars(m, d, l, n) { const k = this.k(m, d, l); if (n > (this.data.stars[k] || 0)) { this.data.stars[k] = n; this.save(); } },
   unlocked(m, d) { let l = 1; while (this.stars(m, d, l) > 0) l++; return l; },
-  total(m) { let t = 0; for (const k in this.data.stars) if (!m || k.startsWith(m + ':')) t += this.data.stars[k]; return t; },
+  total(m, p = this.data) { let t = 0; for (const k in p.stars) if (!m || k.startsWith(m + ':')) t += p.stars[k]; return t + (m ? 0 : p.bonus || 0); },
+  streak(p = this.data) { const t = dayNum(); return p.lastDay && t - dayNum(p.lastDay) <= 1 ? p.streak : 0; },
+  markPlayed() {
+    const p = this.data, t = todayStr();
+    if (p.lastDay === t) return;
+    p.streak = p.lastDay && dayNum(t) - dayNum(p.lastDay) === 1 ? p.streak + 1 : 1;
+    p.lastDay = t; p.bestStreak = Math.max(p.bestStreak || 0, p.streak); this.save();
+  },
 };
 
 /* ===================== SOM ===================== */
 const Sound = {
   ctx: null,
   tone(freq, dur, type = 'sine', vol = .15, when = 0, slide) {
-    if (!Store.data.sound) return;
+    if (!Store.root.sound) return;
     try {
       this.ctx = this.ctx || new (window.AudioContext || window.webkitAudioContext)();
       const c = this.ctx, t = c.currentTime + when, o = c.createOscillator(), g = c.createGain();
@@ -201,8 +333,8 @@ const Sound = {
       case 'pick': this.tone(520, .08, 'triangle', .12, 0, 780); break;
       case 'drop': this.tone(300, .1, 'triangle', .14, 0, 200); break;
       case 'good': this.tone(660, .1, 'sine', .14); this.tone(990, .14, 'sine', .14, .08); break;
-      case 'bad': this.tone(220, .22, 'sawtooth', .08, 0, 110); if (navigator.vibrate) navigator.vibrate(60); break;
-      case 'win': [523, 659, 784, 1047].forEach((f, i) => this.tone(f, .22, 'triangle', .14, i * .11)); if (navigator.vibrate) navigator.vibrate([30, 40, 30]); break;
+      case 'bad': this.tone(220, .22, 'sawtooth', .08, 0, 110); if (Store.root.vibe && navigator.vibrate) navigator.vibrate(60); break;
+      case 'win': [523, 659, 784, 1047].forEach((f, i) => this.tone(f, .22, 'triangle', .14, i * .11)); if (Store.root.vibe && navigator.vibrate) navigator.vibrate([30, 40, 30]); break;
       case 'lose': [392, 330, 262].forEach((f, i) => this.tone(f, .25, 'triangle', .12, i * .14)); break;
       case 'pop': this.tone(880, .07, 'square', .06, 0, 1400); break;
     }
@@ -214,6 +346,9 @@ const DIFFS = ['Fácil', 'Médio', 'Difícil'];
 const MODES = [];
 function registerMode(m) { MODES.push(m); }
 function modeById(id) { return MODES.find(m => m.id === id); }
+const playable = () => MODES.filter(m => m.start);
+function groupStars(m) { return m.subs ? m.subs.reduce((a, id) => a + Store.total(id), 0) : Store.total(m.id); }
+function subOf(m) { return m.subs ? (m.subs.includes(Store.data.sub[m.id]) ? Store.data.sub[m.id] : m.subs[0]) : m.id; }
 
 /* ===================== APP ===================== */
 const App = {
@@ -234,48 +369,12 @@ const App = {
     setTimeout(() => t.remove(), ms);
   },
 
-  home() {
-    this.clear(); this.back = null;
-    const total = Store.total();
-    const scr = h('div', { class: 'screen' },
-      h('div', { class: 'home-top' },
-        h('img', { src: APP_ICON, alt: '', style: { width: '72px', height: '72px', marginBottom: '8px', filter: 'drop-shadow(0 4px 0 #170e3c)' } }),
-        h('div', { class: 'logo' }, 'Family ', h('span', null, 'Puzzle')),
-        h('div', { class: 'tag' }, 'Diversão para toda a família • 8 tipos de desafio'),
-        h('div', { class: 'chips' },
-          h('div', { class: 'chip' }, '⭐ ' + total),
-          h('button', { class: 'chip', onclick: () => { Store.data.sound = !Store.data.sound; Store.save(); this.home(); } }, Store.data.sound ? '🔊 Som' : '🔇 Mudo')
-        )
-      ),
-      h('div', { class: 'scroll' },
-        h('button', { class: 'big-btn', onclick: () => this.surprise() }, '🎲 Surpresa! Jogar agora'),
-        h('div', { class: 'grid-modes' }, MODES.map(m => {
-          const d = Store.data.diff || 0;
-          return h('button', { class: 'mode-card', style: { background: m.bg }, onclick: () => { Sound.play('tap'); this.levels(m.id); } },
-            h('div', { class: 'ic' }, m.icon),
-            h('div', { class: 'nm' }, m.name),
-            h('div', { class: 'ds' }, m.desc),
-            h('div', { class: 'pr' }, '⭐ ' + Store.total(m.id) + '  •  Nv ' + Store.unlocked(m.id, d) + ' ' + DIFFS[d][0])
-          );
-        })),
-        h('div', { class: 'foot' }, 'Dica: adicione à tela inicial para jogar sem internet.')
-      )
-    );
-    this.root.append(scr);
-  },
-
-  surprise() {
-    const m = MODES[Math.floor(Math.random() * MODES.length)];
-    const d = Store.data.diff || 0;
-    this.play(m.id, d, Store.unlocked(m.id, d));
-  },
-
   levels(modeId, diff) {
     this.clear();
     const m = modeById(modeId);
     if (diff == null) diff = Store.data.diff || 0;
-    Store.data.diff = diff; Store.save();
-    this.back = () => this.home();
+    Store.data.diff = diff; if (m.parent) Store.data.sub[m.parent] = modeId; Store.save();
+    this.back = () => this.home('inicio');
     const unl = Store.unlocked(modeId, diff);
     const count = Math.max(30, Math.ceil((unl + 5) / 5) * 5);
     const grid = h('div', { class: 'grid-lv' });
@@ -287,9 +386,10 @@ const App = {
     }
     this.root.append(h('div', { class: 'screen' },
       h('div', { class: 'bar' },
-        h('button', { class: 'ibtn', onclick: () => this.home() }, '‹'),
-        h('h2', null, m.icon + ' ' + m.name),
+        h('button', { class: 'ibtn', onclick: () => this.home('inicio') }, '‹'),
+        h('h2', null, m.parent ? modeById(m.parent).icon + ' ' + modeById(m.parent).name : m.icon + ' ' + m.name),
         h('div', { class: 'ibtn', style: { background: 'none' } }, '')),
+      m.parent ? h('div', { class: 'tabs subs' }, modeById(m.parent).subs.map(id => { const sm = modeById(id); return h('button', { class: 'tab' + (id === modeId ? ' on' : ''), onclick: () => { Store.data.sub[m.parent] = id; Store.save(); this.levels(id, diff); } }, h('div', { style: { fontSize: '22px' } }, sm.icon), h('div', { style: { fontSize: '11px' } }, sm.name)); })) : null,
       h('div', { style: { textAlign: 'center', fontSize: '13px', opacity: .8, padding: '0 16px 8px' } }, m.help),
       h('div', { class: 'tabs' }, DIFFS.map((n, i) => h('button', { class: 'tab' + (i === diff ? ' on' : ''), onclick: () => this.levels(modeId, i) }, n))),
       h('div', { class: 'scroll' }, grid)
@@ -297,24 +397,25 @@ const App = {
     const nx = $('.lv.next', this.root); if (nx) nx.scrollIntoView({ block: 'center' });
   },
 
-  play(modeId, diff, level) {
+  play(modeId, diff, level, opt = {}) {
     this.clear();
-    const m = modeById(modeId);
-    this.back = () => this.levels(modeId, diff);
+    const m = modeById(modeId), daily = opt.daily;
+    const exit = () => daily != null ? this.home('inicio') : this.levels(modeId, diff);
+    this.back = exit;
     const status = h('div', { class: 'status' });
     const stage = h('div', { class: 'stage' });
     const tools = h('div', { class: 'tools' });
     const scr = h('div', { class: 'screen' },
       h('div', { class: 'bar' },
-        h('button', { class: 'ibtn', onclick: () => this.levels(modeId, diff) }, '‹'),
-        h('h2', null, m.icon + ' ' + m.name + ' • ' + level),
-        h('button', { class: 'ibtn', onclick: () => { Sound.play('tap'); this.play(modeId, diff, level); } }, '↻')),
+        h('button', { class: 'ibtn', onclick: exit }, '‹'),
+        h('h2', null, daily != null ? '🎁 Desafio ' + (daily + 1) + '/3 • ' + m.icon + ' ' + m.name : m.icon + ' ' + m.name + ' • ' + level),
+        h('button', { class: 'ibtn', onclick: () => { Sound.play('tap'); this.play(modeId, diff, level, opt); } }, '↻')),
       status, stage, tools);
     this.root.append(scr);
     let done = false;
     const ctx = {
       diff, level, stage,
-      rng: makeRng(hashStr(modeId + '|' + diff + '|' + level)),
+      rng: makeRng(hashStr(daily != null ? 'daily|' + todayStr() + '|' + daily : modeId + '|' + diff + '|' + level)),
       get W() { return stage.clientWidth; }, get H() { return stage.clientHeight; },
       status: (...items) => { status.innerHTML = ''; items.filter(Boolean).forEach(t => status.append(h('div', { class: 'chip' }, t))); },
       tool: (label, fn) => { const b = h('button', { class: 'tool', onclick: () => { Sound.play('tap'); fn(b); } }, label); tools.append(b); return b; },
@@ -327,30 +428,36 @@ const App = {
       win: (stars = 3, msg) => {
         if (done) return; done = true;
         stars = Math.max(1, Math.min(3, stars));
-        Store.setStars(modeId, diff, level, stars);
+        if (daily != null) Daily.complete(daily, stars); else Store.setStars(modeId, diff, level, stars);
+        Store.data.wins[modeId] = (Store.data.wins[modeId] || 0) + 1;
+        Store.markPlayed(); Store.save();
         Sound.play('win');
-        this.timers.push(setTimeout(() => this.result(true, stars, msg, modeId, diff, level), 450));
+        this.timers.push(setTimeout(() => { this.result(true, stars, msg, modeId, diff, level, opt); Achievements.check(); }, 450));
       },
       fail: msg => {
         if (done) return; done = true;
         Sound.play('lose');
-        this.timers.push(setTimeout(() => this.result(false, 0, msg, modeId, diff, level), 450));
+        this.timers.push(setTimeout(() => this.result(false, 0, msg, modeId, diff, level, opt), 450));
       },
     };
     // espera layout para medir o palco
     requestAnimationFrame(() => { try { m.start(ctx); } catch (e) { console.error(e); stage.append(h('div', { style: { padding: '20px' } }, 'Erro: ' + e.message)); } });
   },
 
-  result(win, stars, msg, modeId, diff, level) {
+  result(win, stars, msg, modeId, diff, level, opt = {}) {
     const praise = ['Muito bem!', 'Mandou bem!', 'Incrível!', 'Show!', 'Genial!', 'Perfeito!'];
+    const daily = opt.daily, nextDaily = daily != null ? Daily.nextIndex() : -1;
+    if (daily != null && win) msg = (msg ? msg + ' ' : '') + `Bônus do desafio: +${stars * 2} ⭐` + (nextDaily < 0 ? ' • Desafio do dia completo! 🎉' : '');
     const ov = h('div', { class: 'ov' }, h('div', { class: 'card' },
       h('h3', null, win ? (stars === 3 ? praise[Math.floor(Math.random() * praise.length)] : 'Nível completo!') : 'Quase lá!'),
       win ? h('div', { class: 'stars' }, [0, 1, 2].map(i => h('span', { class: 's' + (i < stars ? '' : ' off'), style: { animationDelay: (i * .15) + 's' } }, '⭐'))) : h('div', { class: 'stars' }, '😅'),
       h('p', null, msg || (win ? (stars < 3 ? 'Tente de novo para fazer 3 estrelas!' : 'Pronto para o próximo?') : 'Tente de novo, você consegue!')),
       h('div', { class: 'row' },
-        h('button', { onclick: () => this.levels(modeId, diff) }, '☰'),
-        h('button', { onclick: () => this.play(modeId, diff, level) }, '↻ Repetir'),
-        win ? h('button', { class: 'pri', onclick: () => this.play(modeId, diff, level + 1) }, 'Próximo ›') : null
+        h('button', { onclick: () => daily != null ? this.home('inicio') : this.levels(modeId, diff) }, daily != null ? '🏠' : '☰'),
+        h('button', { onclick: () => this.play(modeId, diff, level, opt) }, '↻ Repetir'),
+        win ? (daily != null
+          ? (nextDaily >= 0 ? h('button', { class: 'pri', onclick: () => Daily.play(nextDaily) }, 'Próximo ›') : h('button', { class: 'pri', onclick: () => this.home('inicio') }, 'Início ›'))
+          : h('button', { class: 'pri', onclick: () => this.play(modeId, diff, level + 1) }, 'Próximo ›')) : null
       )));
     this.root.append(ov);
   }
@@ -367,6 +474,200 @@ function onDrag(el, { start, move, end }) {
     window.addEventListener('pointermove', mv); window.addEventListener('pointerup', up); window.addEventListener('pointercancel', up);
   });
 }
+
+/* ===================== DESAFIO DO DIA ===================== */
+const Daily = {
+  get() {
+    const p = Store.data, t = todayStr();
+    if (!p.daily || p.daily.date !== t) {
+      const rng = makeRng(hashStr('daily|' + t));
+      const ids = rng.shuffle(playable().map(m => m.id)).slice(0, 3);
+      p.daily = { date: t, games: ids, done: [0, 0, 0], diff: p.diff || 0 };
+      Store.save();
+    }
+    return p.daily;
+  },
+  nextIndex() { const d = this.get(); return d.done.findIndex(v => !v); },
+  play(i) { const d = this.get(); App.play(d.games[i], d.diff, 3 + i, { daily: i }); },
+  complete(i, stars) {
+    const d = this.get(), p = Store.data, before = d.done[i];
+    if (stars > before) { p.bonus += (stars - before) * 2; d.done[i] = stars; }
+    if (!before && d.done.every(Boolean)) p.dailyDone++;
+    Store.save();
+  },
+};
+
+/* ===================== CONQUISTAS ===================== */
+const TOP_OF = id => { const m = modeById(id); return m && m.parent ? m.parent : id; };
+const ACHS = [
+  ['first', '🌱', 'Primeiros passos', 'Complete o primeiro nível', p => [Object.keys(p.stars).length, 1]],
+  ['explorer', '🧭', 'Explorador', 'Complete um nível em cada um dos 8 jogos', p => [new Set(Object.keys(p.stars).map(k => TOP_OF(k.split(':')[0]))).size, 8]],
+  ['stars50', '⭐', 'Colecionador', 'Junte 50 estrelas', p => [Store.total(null, p), 50]],
+  ['stars200', '🌟', 'Constelação', 'Junte 200 estrelas', p => [Store.total(null, p), 200]],
+  ['stars500', '🌌', 'Galáxia', 'Junte 500 estrelas', p => [Store.total(null, p), 500]],
+  ['perfect10', '💯', 'Perfeccionista', 'Faça 3 estrelas em 10 níveis', p => [Object.values(p.stars).filter(v => v === 3).length, 10]],
+  ['perfect50', '👑', 'Lenda', 'Faça 3 estrelas em 50 níveis', p => [Object.values(p.stars).filter(v => v === 3).length, 50]],
+  ['levels100', '🏃', 'Maratonista', 'Complete 100 níveis', p => [Object.keys(p.stars).length, 100]],
+  ['streak3', '🔥', 'Em chamas', 'Jogue 3 dias seguidos', p => [Math.max(p.bestStreak || 0, Store.streak(p)), 3]],
+  ['streak7', '📅', 'Fiel escudeiro', 'Jogue 7 dias seguidos', p => [Math.max(p.bestStreak || 0, Store.streak(p)), 7]],
+  ['daily1', '🎁', 'Desafiante', 'Complete um Desafio do dia', p => [p.dailyDone, 1]],
+  ['daily7', '🏅', 'Rotina de campeão', 'Complete 7 Desafios do dia', p => [p.dailyDone, 7]],
+  ['logic4', '🧠', 'Mestre da lógica', 'Complete um nível em cada jogo de Lógica', p => [['sudoku', 'lights', 'tangram', 'hanoi'].filter(id => Store.total(id, p) > 0).length, 4]],
+  ['hard10', '💪', 'Sem medo', 'Complete 10 níveis no Difícil', p => [Object.keys(p.stars).filter(k => k.split(':')[1] === '2').length, 10]],
+  ['trivia10', '🤓', 'Sabichão', 'Vença 10 rodadas de Trivia', p => [p.wins.trivia || 0, 10]],
+].map(([id, icon, name, desc, fn]) => ({ id, icon, name, desc, fn }));
+const Achievements = {
+  status(p = Store.data) { return ACHS.map(a => { const [cur, goal] = a.fn(p); return { ...a, cur: Math.min(cur, goal), goal, ok: cur >= goal }; }); },
+  count(p = Store.data) { return this.status(p).filter(a => a.ok).length; },
+  check() {
+    const p = Store.data, news = this.status().filter(a => a.ok && !p.ach.includes(a.id));
+    if (!news.length) return;
+    news.forEach(a => p.ach.push(a.id)); Store.save();
+    news.forEach((a, i) => setTimeout(() => { App.toast(a.icon + ' Conquista: ' + a.name + '!', 2200); Sound.play('good'); }, 900 + i * 2400));
+  },
+};
+
+/* ===================== TELA INICIAL (cartas) ===================== */
+Object.assign(App, {
+  tab: 'inicio',
+  home(tab) {
+    if (tab) this.tab = tab;
+    this.clear(); this.back = null;
+    const body = h('div', { class: 'hb-body' });
+    const scr = h('div', { class: 'screen hb' }, body, this.tabbar());
+    this.root.append(scr);
+    ({ inicio: () => this.homeStart(body), conquistas: () => this.homeAch(body), familia: () => this.homeFamily(body), ajustes: () => this.homeSettings(body) })[this.tab]();
+  },
+  tabbar() {
+    const it = (id, ic, label) => h('button', { class: 'tb' + (this.tab === id ? ' on' : ''), onclick: () => { Sound.play('tap'); this.home(id); } }, h('span', null, ic), label);
+    return h('div', { class: 'tabbar' },
+      it('inicio', '🏠', 'Início'), it('conquistas', '🏆', 'Conquistas'),
+      h('button', { class: 'fab', 'aria-label': 'Jogo surpresa', onclick: () => { Sound.play('pick'); this.surprise(); } }, '🎲'),
+      it('familia', '👨‍👩‍👧', 'Família'), it('ajustes', '⚙️', 'Ajustes'));
+  },
+  surprise() {
+    const pl = playable(), m = pl[Math.floor(Math.random() * pl.length)];
+    const d = Store.data.diff || 0;
+    this.play(m.id, d, Store.unlocked(m.id, d));
+  },
+  homeStart(body) {
+    const p = Store.data, hr = new Date().getHours();
+    const greet = hr < 12 ? 'Bom dia' : hr < 18 ? 'Boa tarde' : 'Boa noite';
+    const D = Daily.get(), nx = D.done.findIndex(v => !v);
+    body.append(
+      h('div', { class: 'hb-hello' },
+        h('div', null, h('small', null, `${greet}, ${p.name}! 👋`), h('h2', null, 'O que vamos ', h('br'), 'jogar hoje?')),
+        h('button', { class: 'hb-ava', onclick: () => this.home('familia') }, p.avatar)),
+      h('div', { class: 'hb-stats' },
+        h('div', null, '⭐ ', h('b', null, Store.total()), Store.total() === 1 ? ' estrela' : ' estrelas'),
+        h('div', null, '🔥 ', h('b', null, Store.streak()), Store.streak() === 1 ? ' dia' : ' dias'),
+        h('button', { onclick: () => this.home('conquistas') }, '🏆 ', h('b', null, Achievements.count()))),
+      h('button', { class: 'hb-daily' + (nx < 0 ? ' done' : ''), onclick: () => { if (nx >= 0) { Sound.play('pick'); Daily.play(nx); } } },
+        h('div', { class: 'gift' }, nx < 0 ? '🎉' : '🎁'),
+        h('div', { class: 'txt' }, h('b', null, 'Desafio do dia'),
+          h('div', { class: 'mini' }, D.games.map((id, i) => h('span', { class: D.done[i] ? 'ok' : '' }, modeById(id).icon))),
+          h('small', null, nx < 0 ? 'Completo! Volte amanhã 😉' : 'Estrelas em dobro!')),
+        nx >= 0 ? h('div', { class: 'go' }, nx ? 'Continuar' : 'Jogar') : null)
+    );
+    // baralho de cartas
+    const tops = MODES.filter(m => !m.parent);
+    const deck = h('div', { class: 'deck' }), dots = h('div', { class: 'dots' });
+    body.append(deck, dots);
+    const W = body.clientWidth || 360;
+    const cw = Math.min(250, Math.round(W * .64));
+    deck.style.paddingInline = (W - cw) / 2 + 'px';
+    const cards = tops.map((m, i) => {
+      const sid = subOf(m), sm = modeById(sid), d = p.diff || 0, unl = Store.unlocked(sid, d);
+      const done = unl - 1, medal = Math.floor(done / 10) * 10 + 10;
+      const card = h('div', { class: 'gcard', style: { width: cw + 'px', background: m.bg } },
+        h('div', { class: 'em' }, m.icon),
+        h('h3', null, m.name),
+        h('p', null, m.subs ? m.subs.map(id => modeById(id).icon + ' ' + modeById(id).name).join(' • ') : m.desc),
+        h('div', { class: 'meta' }, '⭐ ' + groupStars(m), h('span', null, DIFFS[d])),
+        h('div', { class: 'bar' }, h('i', { style: { width: (done % 10) * 10 + '%' } })),
+        h('small', { class: 'medal' }, '🏅 Próxima medalha: nível ' + medal),
+        h('button', { class: 'btn', onclick: e => { e.stopPropagation(); Sound.play('pick'); p.lastCard = i; Store.save(); this.play(sid, d, unl); } }, '▶ Jogar • ' + (m.subs ? sm.name + ' ' : 'Nível ') + unl));
+      card.addEventListener('click', () => { Sound.play('tap'); p.lastCard = i; Store.save(); this.levels(sid); });
+      deck.append(card); dots.append(h('i', { onclick: () => deck.scrollTo({ left: i * (cw + 14), behavior: 'smooth' }) }));
+      return card;
+    });
+    const fx = () => {
+      const c = deck.scrollLeft + deck.clientWidth / 2; let best = 0, bd = 1e9;
+      cards.forEach((el, i) => {
+        const mid = el.offsetLeft + el.offsetWidth / 2, off = (mid - c) / deck.clientWidth;
+        const k = Math.min(1, Math.abs(off) * 1.6);
+        el.style.transform = `scale(${1 - k * .14}) rotate(${off * 10}deg)`; el.style.opacity = 1 - k * .35;
+        if (Math.abs(mid - c) < bd) { bd = Math.abs(mid - c); best = i; }
+      });
+      [...dots.children].forEach((d, i) => d.classList.toggle('on', i === best));
+    };
+    deck.addEventListener('scroll', () => requestAnimationFrame(fx), { passive: true });
+    requestAnimationFrame(() => { deck.scrollLeft = (p.lastCard || 0) * (cw + 14); fx(); });
+  },
+  homeAch(body) {
+    const st = Achievements.status(), n = st.filter(a => a.ok).length;
+    body.append(h('div', { class: 'hb-title' }, h('h2', null, '🏆 Conquistas'), h('small', null, `${n} de ${st.length} • ${Store.data.avatar} ${Store.data.name}`)),
+      h('div', { class: 'hb-scroll' }, h('div', { class: 'achs' }, st.map(a => h('div', { class: 'ach' + (a.ok ? ' ok' : '') },
+        h('div', { class: 'ic' }, a.icon),
+        h('div', { class: 'tx' }, h('b', null, a.name), h('small', null, a.desc),
+          h('div', { class: 'bar' }, h('i', { style: { width: (a.cur / a.goal * 100) + '%' } }))),
+        h('div', { class: 'cnt' }, a.ok ? '✔' : a.cur + '/' + a.goal))))));
+  },
+  homeFamily(body) {
+    const R = Store.root, ids = Object.keys(R.profiles);
+    body.append(h('div', { class: 'hb-title' }, h('h2', null, '👨‍👩‍👧 Família'), h('small', null, 'Cada jogador tem seu próprio progresso')),
+      h('div', { class: 'hb-scroll' }, h('div', { class: 'fam' },
+        ids.map(id => {
+          const p = R.profiles[id], on = id === R.active;
+          return h('div', { class: 'prof' + (on ? ' on' : ''), onclick: () => { if (on) return; R.active = id; Store.save(); Sound.play('good'); this.toast(p.avatar + ' Agora joga: ' + p.name); this.home('inicio'); } },
+            h('div', { class: 'av' }, p.avatar),
+            h('b', null, p.name),
+            h('small', null, '⭐ ' + Store.total(null, p) + '  🔥 ' + Store.streak(p)),
+            on ? h('div', { class: 'now' }, 'Jogando agora') : h('div', { class: 'now off' }, 'Tocar para jogar'),
+            h('button', { class: 'ed', 'aria-label': 'Editar', onclick: e => { e.stopPropagation(); this.profileForm(id); } }, '✎'));
+        }),
+        ids.length < 6 ? h('button', { class: 'prof add', onclick: () => this.profileForm(null) }, h('div', { class: 'av' }, '＋'), h('b', null, 'Novo jogador')) : null)));
+  },
+  profileForm(id) {
+    const R = Store.root, p = id ? R.profiles[id] : null;
+    let av = p ? p.avatar : AVATARS.find(a => !Object.values(R.profiles).some(q => q.avatar === a)) || AVATARS[0];
+    const name = h('input', { class: 'inp', maxlength: 14, placeholder: 'Nome do jogador', value: p ? p.name : '' });
+    const grid = h('div', { class: 'avs' });
+    const drawAv = () => { grid.innerHTML = ''; AVATARS.forEach(a => grid.append(h('button', { class: a === av ? 'on' : '', onclick: () => { av = a; drawAv(); } }, a))); };
+    drawAv();
+    const close = () => ov.remove();
+    const ov = h('div', { class: 'ov' }, h('div', { class: 'card' },
+      h('h3', null, p ? 'Editar jogador' : 'Novo jogador'), name, grid,
+      h('div', { class: 'row' },
+        h('button', { onclick: close }, 'Cancelar'),
+        h('button', { class: 'pri', onclick: () => {
+          const nm = name.value.trim(); if (!nm) { name.focus(); this.toast('Digite um nome'); return; }
+          if (p) { p.name = nm; p.avatar = av; } else { const nid = 'p' + Date.now().toString(36); R.profiles[nid] = newProfile(nm, av); R.active = nid; }
+          Store.save(); close(); this.home(p ? 'familia' : 'inicio');
+        } }, 'Salvar')),
+      p && Object.keys(R.profiles).length > 1 ? h('button', { class: 'danger', onclick: () => this.confirm(`Excluir ${p.name} e todo o progresso?`, () => { delete R.profiles[id]; if (R.active === id) R.active = Object.keys(R.profiles)[0]; Store.save(); close(); this.home('familia'); }) }, '🗑 Excluir jogador') : null));
+    this.root.append(ov); if (!p) setTimeout(() => name.focus(), 50);
+  },
+  confirm(msg, yes) {
+    const ov = h('div', { class: 'ov', style: { zIndex: 70 } }, h('div', { class: 'card' }, h('h3', null, 'Tem certeza?'), h('p', null, msg),
+      h('div', { class: 'row' }, h('button', { onclick: () => ov.remove() }, 'Não'), h('button', { class: 'pri red', onclick: () => { ov.remove(); yes(); } }, 'Sim'))));
+    this.root.append(ov);
+  },
+  homeSettings(body) {
+    const R = Store.root, p = Store.data;
+    const sw = (label, on, fn) => h('button', { class: 'set', onclick: () => { fn(); Store.save(); this.home('ajustes'); } }, h('span', null, label), h('i', { class: 'sw' + (on ? ' on' : '') }));
+    body.append(h('div', { class: 'hb-title' }, h('h2', null, '⚙️ Ajustes')),
+      h('div', { class: 'hb-scroll' },
+        h('div', { class: 'sets' },
+          sw('🔊 Sons', R.sound, () => R.sound = !R.sound),
+          sw('📳 Vibração', R.vibe, () => R.vibe = !R.vibe),
+          h('div', { class: 'set col' }, h('span', null, '🎯 Dificuldade de ' + p.name),
+            h('div', { class: 'seg' }, DIFFS.map((n, i) => h('button', { class: i === (p.diff || 0) ? 'on' : '', onclick: () => { p.diff = i; Store.save(); this.home('ajustes'); } }, n)))),
+          h('button', { class: 'set', onclick: () => this.confirm(`Apagar todas as estrelas, conquistas e sequência de ${p.name}?`, () => { const keep = { name: p.name, avatar: p.avatar }; R.profiles[R.active] = Object.assign(newProfile(keep.name, keep.avatar)); Store.save(); this.toast('Progresso zerado'); this.home('ajustes'); }) }, h('span', null, '🧹 Zerar progresso de ' + p.name), h('i', null, '›'))),
+        h('div', { class: 'about' }, h('img', { src: APP_ICON, alt: '' }), h('b', null, 'Family Puzzle'), h('small', null, 'Versão 2.0 • 8 tipos de desafio • joga sem internet'),
+          h('small', null, 'Dica: no navegador do celular, use "Adicionar à tela inicial" para abrir como um app.'))));
+  },
+});
 
 /* ===================== QUEBRA-CABEÇA (troca de peças) ===================== */
 const SCENES = [
@@ -638,65 +939,187 @@ registerMode({
   }
 });
 
-/* ===================== ARROWS (setas que saem do tabuleiro) ===================== */
+/* ===================== SETAS (setas com curvas formando desenhos) ===================== */
 const DIRS = [[0, -1], [1, 0], [0, 1], [-1, 0]]; // cima, direita, baixo, esquerda
-const DIR_COL = ['#ff5c8a', '#3ecf8e', '#2f80ff', '#ffb020'];
+function inPoly(px, py, poly) { let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j]; if ((yi > py) !== (yj > py) && px < (xj - xi) * (py - yi) / (yj - yi) + xi) c = !c; } return c; }
+const starPoly = (() => { const p = []; for (let i = 0; i < 10; i++) { const a = -Math.PI / 2 + i * Math.PI / 5, r = i % 2 ? .42 : 1; p.push([Math.cos(a) * r, Math.sin(a) * r + .08]); } return p; })();
+// formas em coordenadas normalizadas u,v ∈ [-1,1] (v para baixo)
+const ARROW_SHAPES = [
+  { name: 'Seta', emo: '⬆️', f: (u, v) => (v < -.05 && Math.abs(u) <= (v + 1.02) * 1.05) || (v >= -.05 && Math.abs(u) <= .42) },
+  { name: 'Coração', emo: '❤️', f: (u, v) => { const x = u * 1.25, y = -v * 1.25 + .3; return Math.pow(x * x + y * y - 1, 3) - x * x * y * y * y <= 0; } },
+  { name: 'Estrela', emo: '⭐', f: (u, v) => inPoly(u, v, starPoly) },
+  { name: 'Casa', emo: '🏠', f: (u, v) => inPoly(u, v, [[0, -1.02], [1.02, -.12], [-1.02, -.12]]) || (Math.abs(u) <= .78 && v >= -.15) },
+  { name: 'Árvore', emo: '🎄', f: (u, v) => inPoly(u, v, [[0, -1.02], [.55, -.45], [-.55, -.45]]) || inPoly(u, v, [[0, -.7], [.8, .1], [-.8, .1]]) || inPoly(u, v, [[0, -.3], [1.02, .62], [-1.02, .62]]) || (Math.abs(u) <= .2 && v > .5) },
+  { name: 'Peixe', emo: '🐟', f: (u, v) => ((u + .2) ** 2 / .72 ** 2 + (v * 1.05) ** 2 / .62 ** 2 <= 1) || (u > .4 && Math.abs(v) <= (u - .4) * 1.1) },
+  { name: 'Diamante', emo: '💎', f: (u, v) => v < -.4 ? Math.abs(u) <= .55 + (v + 1.02) * .75 : Math.abs(u) <= (1.02 - v) * .72 },
+  { name: 'Gato', emo: '🐱', f: (u, v) => (u * u + (v - .18) ** 2 <= .8 ** 2) || inPoly(u, v, [[-.82, -1.02], [-.25, -.5], [-.8, -.2]]) || inPoly(u, v, [[.82, -1.02], [.25, -.5], [.8, -.2]]) },
+  { name: 'Foguete', emo: '🚀', f: (u, v) => inPoly(u, v, [[0, -1.02], [.42, -.45], [.42, .55], [-.42, .55], [-.42, -.45]]) || inPoly(u, v, [[.42, .05], [.9, .75], [.42, .55]]) || inPoly(u, v, [[-.42, .05], [-.9, .75], [-.42, .55]]) || (Math.abs(u) <= .25 && v > .5 && v < .85) },
+  { name: 'Lua', emo: '🌙', f: (u, v) => (u * u + v * v <= 1.02) && ((u - .45) ** 2 + (v + .2) ** 2 > .62) },
+  { name: 'Cruz', emo: '➕', f: (u, v) => Math.abs(u) <= .36 || Math.abs(v) <= .36 },
+  { name: 'Borboleta', emo: '🦋', f: (u, v) => ((Math.abs(u) - .5) ** 2 / .5 ** 2 + (v + .35) ** 2 / .55 ** 2 <= 1) || ((Math.abs(u) - .42) ** 2 / .4 ** 2 + (v - .45) ** 2 / .45 ** 2 <= 1) || (Math.abs(u) < .12 && Math.abs(v) < .9) },
+];
+const SNAKE_COLS = ['#ff5c8a', '#2f80ff', '#ffb020', '#22b573', '#9b5cff', '#ff7a45', '#00a8c6', '#e84393', '#5f6bd8', '#c99200'];
+
+function genArrowLevel(rng, diff, level) {
+  const n = Math.min([11, 14, 17][diff] + Math.floor(level / 6), [13, 17, 20][diff]);
+  const shape = ARROW_SHAPES[(level - 1 + diff * 5) % ARROW_SHAPES.length];
+  const mask = Array.from({ length: n }, (_, y) => Array.from({ length: n }, (_, x) => shape.f((x + .5) / n * 2 - 1, (y + .5) / n * 2 - 1)));
+  const [minL, maxL] = [[3, 6], [4, 10], [5, 15]][diff];
+  const inB = (x, y) => x >= 0 && y >= 0 && x < n && y < n;
+  const own = Array.from({ length: n }, () => Array(n).fill(-1));
+  // 1) particiona o desenho inteiro em caminhos (cobras)
+  let paths = [];
+  const freeNb = (x, y) => DIRS.filter(([dx, dy]) => inB(x + dx, y + dy) && mask[y + dy][x + dx] && own[y + dy][x + dx] < 0).length;
+  for (;;) {
+    const fr = []; for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) if (mask[y][x] && own[y][x] < 0) fr.push([x, y]);
+    if (!fr.length) break;
+    fr.sort((a, b) => freeNb(...a) - freeNb(...b) || rng() - .5);
+    const id = paths.length, target = rng.int(minL, maxL);
+    let [cx, cy] = fr[0], dir = -1; const cells = [[cx, cy]]; own[cy][cx] = id;
+    while (cells.length < target) {
+      const opts = [0, 1, 2, 3].filter(k => { const nx = cx + DIRS[k][0], ny = cy + DIRS[k][1]; return inB(nx, ny) && mask[ny][nx] && own[ny][nx] < 0; });
+      if (!opts.length) break;
+      const k = dir >= 0 && opts.includes(dir) && rng() < .6 ? dir : rng.pick(opts);
+      cx += DIRS[k][0]; cy += DIRS[k][1]; dir = k; cells.push([cx, cy]); own[cy][cx] = id;
+    }
+    paths.push(cells);
+  }
+  // casas soltas: gruda na ponta de um caminho vizinho
+  paths.forEach((p, i) => {
+    if (p.length !== 1) return;
+    const [x, y] = p[0];
+    for (const [dx, dy] of DIRS) {
+      const nx = x + dx, ny = y + dy; if (!inB(nx, ny) || own[ny][nx] < 0 || own[ny][nx] === i) continue;
+      const q = paths[own[ny][nx]]; if (q.length < 2) continue;
+      if (q[0][0] === nx && q[0][1] === ny) { q.unshift([x, y]); own[y][x] = own[ny][nx]; p.length = 0; break; }
+      const e = q[q.length - 1]; if (e[0] === nx && e[1] === ny) { q.push([x, y]); own[y][x] = own[ny][nx]; p.length = 0; break; }
+    }
+  });
+  paths = paths.filter(p => p.length);
+  // 2) simula a retirada: escolhe pontas que conseguem sair; se travar, corta uma cobra
+  const occ = Array.from({ length: n }, () => Array(n).fill(-1));
+  let live = paths.map((cells, i) => ({ cells, i }));
+  live.forEach(sn => sn.cells.forEach(([x, y]) => occ[y][x] = sn.i));
+  let nextId = paths.length;
+  const exitDir = (cells, end) => { // direção natural da ponta
+    if (cells.length === 1) return null;
+    const a = end ? cells[cells.length - 1] : cells[0], b = end ? cells[cells.length - 2] : cells[1];
+    return DIRS.findIndex(([dx, dy]) => dx === a[0] - b[0] && dy === a[1] - b[1]);
+  };
+  const rayFree = (x, y, d) => { let cx = x + DIRS[d][0], cy = y + DIRS[d][1]; while (inB(cx, cy)) { if (occ[cy][cx] >= 0) return false; cx += DIRS[d][0]; cy += DIRS[d][1]; } return true; };
+  const snakes = [];
+  let guard = 0;
+  while (live.length && guard++ < 5000) {
+    const moves = [];
+    for (const sn of live) {
+      if (sn.cells.length === 1) { for (let d = 0; d < 4; d++) if (rayFree(sn.cells[0][0], sn.cells[0][1], d)) moves.push({ sn, cells: sn.cells, d }); }
+      else for (const end of [true, false]) {
+        const cells = end ? sn.cells : sn.cells.slice().reverse(), d = exitDir(cells, true), [hx, hy] = cells[cells.length - 1];
+        if (rayFree(hx, hy, d)) moves.push({ sn, cells, d });
+      }
+    }
+    if (moves.length) {
+      const m = rng.pick(moves);
+      m.sn.cells.forEach(([x, y]) => occ[y][x] = -1);
+      live.splice(live.indexOf(m.sn), 1);
+      snakes.push({ cells: m.cells, d: m.d });
+    } else {
+      // corta a maior cobra em duas
+      const sn = live.slice().sort((a, b) => b.cells.length - a.cells.length)[0];
+      const k = rng.int(1, sn.cells.length - 1);
+      const tail = { cells: sn.cells.slice(k), i: nextId++ }; sn.cells = sn.cells.slice(0, k);
+      tail.cells.forEach(([x, y]) => occ[y][x] = tail.i); live.push(tail);
+    }
+  }
+  snakes.forEach((sn, i) => { sn.id = i; sn.alive = true; });
+  const grid = Array.from({ length: n }, () => Array(n).fill(-1));
+  snakes.forEach(sn => sn.cells.forEach(([x, y]) => grid[y][x] = sn.id));
+  rng.shuffle(snakes.map(sn => sn.id)); // ordem da solução não importa para o jogador
+  return { n, shape, snakes, occ: grid };
+}
+
 registerMode({
   id: 'arrows', name: 'Setas', icon: '➡️', bg: 'linear-gradient(135deg,#11998e,#38ef7d)',
-  desc: 'Tire as setas na ordem certa',
-  help: 'Toque numa seta para ela voar na direção que aponta. Se bater em outra, você perde uma vida!',
+  desc: 'Solte as setas e revele o desenho',
+  help: 'Toque numa seta: ela desliza pelo próprio caminho na direção da ponta. Se a frente estiver bloqueada, ela bate e você perde uma vida!',
   start(ctx) {
-    const { rng, diff, level } = ctx;
-    const n = Math.min([5, 7, 9][diff] + Math.floor(level / 8), [6, 8, 10][diff]);
-    const grid = Array.from({ length: n }, () => Array(n).fill(-1));
-    const cells = rng.shuffle([...Array(n * n).keys()]);
-    const clear = (x, y, d) => { let cx = x + DIRS[d][0], cy = y + DIRS[d][1]; while (cx >= 0 && cy >= 0 && cx < n && cy < n) { if (grid[cy][cx] >= 0) return false; cx += DIRS[d][0]; cy += DIRS[d][1]; } return true; };
-    // construção reversa: cada nova seta precisa ter caminho livre entre as já colocadas
-    for (const c of cells) {
-      const x = c % n, y = Math.floor(c / n);
-      const opts = rng.shuffle([0, 1, 2, 3]).filter(d => clear(x, y, d));
-      if (opts.length && rng() < (diff === 0 ? .8 : .95)) grid[y][x] = opts[0];
+    const G = genArrowLevel(ctx.rng, ctx.diff, ctx.level), { n, snakes, occ } = G;
+    let lives = 3, hints = 0, count = snakes.length;
+    const size = Math.min(ctx.W - 12, ctx.H - 12);
+    const wrap = h('div', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#f7f5ff' } });
+    const svg = s('svg', { viewBox: `-0.5 -0.5 ${n + 1} ${n + 1}`, width: size, height: size, style: 'touch-action:none;overflow:visible' });
+    wrap.append(svg); ctx.stage.append(wrap);
+    const sw = n > 14 ? .26 : .3;
+    const upd = () => ctx.status('❤️'.repeat(lives) + '🖤'.repeat(3 - lives), G.shape.emo + ' ' + G.shape.name, 'Setas: ' + count);
+    // caminho de saída: corpo + raio até fora do tabuleiro
+    snakes.forEach(sn => {
+      const [hx, hy] = sn.cells[sn.cells.length - 1], [dx, dy] = DIRS[sn.d];
+      sn.path = sn.cells.map(([x, y]) => [x + .5, y + .5]);
+      let edge = 0; while (hx + dx * (edge + 1) >= 0 && hy + dy * (edge + 1) >= 0 && hx + dx * (edge + 1) < n && hy + dy * (edge + 1) < n) edge++;
+      for (let k = 1; k <= edge + sn.cells.length + 2; k++) sn.path.push([hx + dx * k + .5, hy + dy * k + .5]);
+      sn.col = SNAKE_COLS[sn.id % SNAKE_COLS.length];
+      sn.g = s('g', {});
+      sn.line = s('polyline', { fill: 'none', stroke: sn.col, 'stroke-width': sw, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+      sn.head = s('path', { fill: sn.col });
+      sn.g.append(sn.line, sn.head); svg.append(sn.g);
+      draw(sn, 0);
+    });
+    function at(path, t) { const i = Math.max(0, Math.min(path.length - 2, Math.floor(t))), f = t - i; return [path[i][0] + (path[i + 1][0] - path[i][0]) * f, path[i][1] + (path[i + 1][1] - path[i][1]) * f]; }
+    function draw(sn, p) {
+      const L = sn.cells.length - 1, pts = [at(sn.path, p)];
+      for (let i = Math.floor(p) + 1; i < p + L; i++) pts.push(sn.path[i]);
+      const end = at(sn.path, p + L); pts.push(end);
+      // encurta a linha para a ponta da flecha
+      const [dx, dy] = DIRS[sn.d];
+      let dirx = dx, diry = dy;
+      if (pts.length >= 2) { const a = pts[pts.length - 2]; const len = Math.hypot(end[0] - a[0], end[1] - a[1]); if (len > .01) { dirx = (end[0] - a[0]) / len; diry = (end[1] - a[1]) / len; } }
+      const tip = [end[0] + dirx * .38, end[1] + diry * .38];
+      sn.line.setAttribute('points', (L === 0 ? [[end[0] - dirx * .3, end[1] - diry * .3], end] : pts).map(q => q[0].toFixed(3) + ',' + q[1].toFixed(3)).join(' '));
+      const px = -diry, py = dirx, w = .36, b = [end[0] - dirx * .12, end[1] - diry * .12];
+      sn.head.setAttribute('d', `M${tip[0]},${tip[1]} L${b[0] + px * w},${b[1] + py * w} L${b[0] - px * w},${b[1] - py * w} Z`);
     }
-    let lives = 3, hints = 0, count = grid.flat().filter(v => v >= 0).length;
-    const size = Math.min(ctx.W - 16, ctx.H - 16), cs = size / n;
-    const wrap = h('div', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#0f2b2b' } });
-    const board = h('div', { style: { position: 'relative', width: size + 'px', height: size + 'px', background: 'repeating-linear-gradient(0deg,transparent 0 ' + (cs - 1) + 'px,rgba(255,255,255,.05) ' + (cs - 1) + 'px ' + cs + 'px),repeating-linear-gradient(90deg,transparent 0 ' + (cs - 1) + 'px,rgba(255,255,255,.05) ' + (cs - 1) + 'px ' + cs + 'px)', borderRadius: '12px' } });
-    wrap.append(board); ctx.stage.append(wrap);
-    const els = {};
-    const upd = () => ctx.status('❤️'.repeat(lives) + '🖤'.repeat(3 - lives), 'Setas: ' + count);
-    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
-      const d = grid[y][x]; if (d < 0) continue;
-      const el = h('div', { style: { position: 'absolute', left: x * cs + 'px', top: y * cs + 'px', width: cs + 'px', height: cs + 'px', padding: (cs * .08) + 'px', transition: 'transform .35s ease-in, opacity .35s' } },
-        h('div', { style: { width: '100%', height: '100%', borderRadius: (cs * .22) + 'px', background: DIR_COL[d], boxShadow: '0 3px 0 rgba(0,0,0,.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }, html: `<svg viewBox="0 0 24 24" width="70%" height="70%" style="transform:rotate(${d * 90}deg)"><path d="M12 3 L20 12 H15 V21 H9 V12 H4 Z" fill="#fff"/></svg>` }));
-      el.addEventListener('pointerdown', e => { e.preventDefault(); tap(x, y); });
-      board.append(el); els[y * n + x] = el;
+    function animate(sn, from, to, dur, done) {
+      const t0 = performance.now();
+      const step = now => { const k = Math.min(1, (now - t0) / dur), e = k < 1 ? (to > from ? k * k * (3 - 2 * k) * .3 + k * .7 : 1 - (1 - k) * (1 - k)) : 1; draw(sn, from + (to - from) * e); if (k < 1) sn.raf = requestAnimationFrame(step); else done && done(); };
+      sn.raf = requestAnimationFrame(step);
     }
-    function tap(x, y) {
-      if (ctx.done) return;
-      const d = grid[y][x]; if (d < 0) return;
-      const el = els[y * n + x];
-      if (clear(x, y, d)) {
-        grid[y][x] = -1; count--; ctx.sfx('pop');
-        el.style.transform = `translate(${DIRS[d][0] * size * 1.2}px,${DIRS[d][1] * size * 1.2}px)`; el.style.opacity = 0;
-        el.style.pointerEvents = 'none';
-        upd();
+    ctx.cleanup(() => snakes.forEach(sn => cancelAnimationFrame(sn.raf)));
+    function blockedAt(sn) { // nº de casas livres até bater, ou -1 se livre
+      const [hx, hy] = sn.cells[sn.cells.length - 1], [dx, dy] = DIRS[sn.d];
+      let k = 0, x = hx + dx, y = hy + dy;
+      while (x >= 0 && y >= 0 && x < n && y < n) { if (occ[y][x] >= 0) return { k, other: snakes[occ[y][x]] }; k++; x += dx; y += dy; }
+      return null;
+    }
+    function tap(sn) {
+      if (ctx.done || !sn.alive || sn.busy) return;
+      const b = blockedAt(sn);
+      if (!b) {
+        sn.alive = false; count--; ctx.sfx('pop'); upd();
+        sn.cells.forEach(([x, y]) => occ[y][x] = -1);
+        const dist = sn.path.length - sn.cells.length;
+        animate(sn, 0, dist, 180 + dist * 28, () => sn.g.remove());
         if (!count) ctx.win(hints ? Math.min(2, lives) : lives);
       } else {
-        // anda até o bloqueio e volta
-        let k = 0, cx = x + DIRS[d][0], cy = y + DIRS[d][1];
-        while (grid[cy][cx] < 0) { k++; cx += DIRS[d][0]; cy += DIRS[d][1]; }
-        const off = (k * cs) + cs * .25;
-        el.style.transition = 'transform .15s'; el.style.transform = `translate(${DIRS[d][0] * off}px,${DIRS[d][1] * off}px)`;
-        setTimeout(() => { el.style.transform = ''; ctx.shake(els[cy * n + cx]); setTimeout(() => el.style.transition = 'transform .35s ease-in, opacity .35s', 160); }, 160);
-        lives--; ctx.sfx('bad'); upd();
-        if (lives <= 0) ctx.fail('As setas bateram 3 vezes. Observe o caminho antes de tocar!');
+        sn.busy = true; lives--; ctx.sfx('bad'); upd();
+        sn.line.setAttribute('stroke', '#e23b5a'); sn.head.setAttribute('fill', '#e23b5a');
+        const flash = b.other; flash.line.setAttribute('stroke-width', sw * 1.6);
+        animate(sn, 0, b.k + .25, 120 + b.k * 30, () => animate(sn, b.k + .25, 0, 220, () => { sn.busy = false; sn.line.setAttribute('stroke', sn.col); sn.head.setAttribute('fill', sn.col); flash.line.setAttribute('stroke-width', sw); }));
+        if (lives <= 0) ctx.fail('As setas bateram 3 vezes. Olhe bem o caminho da ponta antes de tocar!');
       }
     }
+    svg.addEventListener('pointerdown', e => {
+      e.preventDefault(); if (ctx.done) return;
+      const pt = svg.createSVGPoint(); pt.x = e.clientX; pt.y = e.clientY;
+      const lp = pt.matrixTransform(svg.getScreenCTM().inverse());
+      let best = null, bd = .75;
+      for (const sn of snakes) if (sn.alive) for (const [x, y] of sn.cells) { const d = Math.hypot(x + .5 - lp.x, y + .5 - lp.y); if (d < bd) { bd = d; best = sn; } }
+      if (best) tap(best);
+    });
     upd();
     ctx.tool('💡 Dica', () => {
-      for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) if (grid[y][x] >= 0 && clear(x, y, grid[y][x])) {
-        hints++; const inner = els[y * n + x].firstChild; inner.style.outline = '4px solid #fff'; setTimeout(() => inner.style.outline = '', 1200); return;
-      }
+      const sn = snakes.find(sn => sn.alive && !sn.busy && !blockedAt(sn)); if (!sn) return;
+      hints++; sn.line.setAttribute('stroke-width', sw * 1.9); sn.line.setAttribute('stroke-opacity', .9);
+      setTimeout(() => sn.line.setAttribute('stroke-width', sw), 1300);
     });
   }
 });
@@ -948,9 +1371,239 @@ function playLights(ctx) {
 }
 registerMode({
   id: 'logic', name: 'Lógica', icon: '🧠', bg: 'linear-gradient(135deg,#f7971e,#ffd200)',
-  desc: 'Sudoku e Apague as Luzes',
-  help: 'Níveis ímpares: Sudoku (cada número uma vez por linha, coluna e bloco). Pares: toque para inverter a luz e as vizinhas até apagar tudo.',
-  start(ctx) { (ctx.level % 2 ? playSudoku : playLights)(ctx); }
+  desc: 'Sudoku, Luzes, Tangram e Hanói', subs: ['sudoku', 'lights', 'tangram', 'hanoi'],
+});
+registerMode({
+  id: 'sudoku', parent: 'logic', name: 'Sudoku', icon: '🔢',
+  help: 'Complete a grade: cada número aparece uma vez em cada linha, coluna e bloco.',
+  start: playSudoku,
+});
+registerMode({
+  id: 'lights', parent: 'logic', name: 'Luzes', icon: '💡',
+  help: 'Toque numa lâmpada para inverter ela e as vizinhas. Apague todas!',
+  start: playLights,
+});
+
+/* ===================== TANGRAM ===================== */
+const TG_BASE = {
+  LT: [[0, 0], [4, 0], [2, 2]], MT: [[4, 4], [4, 2], [2, 4]], ST: [[4, 0], [4, 2], [3, 1]],
+  SQ: [[2, 2], [3, 1], [4, 2], [3, 3]], PA: [[1, 3], [3, 3], [2, 4], [0, 4]],
+};
+const TG_COLS = { LT: ['#ff5c8a', '#2f80ff'], MT: ['#ffb020'], ST: ['#22b573', '#9b5cff'], SQ: ['#ff7a45'], PA: ['#00a8c6'] };
+const tgCenter = vs => [vs.reduce((a, v) => a + v[0], 0) / vs.length, vs.reduce((a, v) => a + v[1], 0) / vs.length];
+const tgArea = vs => vs.reduce((a, [x, y], i) => { const [u, v] = vs[(i + 1) % vs.length]; return a + x * v - u * y; }, 0) / 2;
+const TG_LOCAL = Object.fromEntries(Object.entries(TG_BASE).map(([k, vs]) => { const [cx, cy] = tgCenter(vs); let l = vs.map(([x, y]) => [x - cx, y - cy]); if (tgArea(l) < 0) l.reverse(); return [k, l]; }));
+function tgVerts(type, rot, flip, x, y) {
+  const a = rot * Math.PI / 4, c = Math.cos(a), sn = Math.sin(a);
+  const out = TG_LOCAL[type].map(([px, py]) => { if (flip) px = -px; return [px * c - py * sn + x, px * sn + py * c + y]; });
+  return flip ? out.reverse() : out;
+}
+function tgOverlap(A, B) { // SAT para polígonos convexos, tolera contato
+  for (const P of [A, B]) for (let i = 0; i < P.length; i++) {
+    const [x1, y1] = P[i], [x2, y2] = P[(i + 1) % P.length], nx = y1 - y2, ny = x2 - x1;
+    let a0 = Infinity, a1 = -Infinity, b0 = Infinity, b1 = -Infinity;
+    for (const [x, y] of A) { const d = x * nx + y * ny; a0 = Math.min(a0, d); a1 = Math.max(a1, d); }
+    for (const [x, y] of B) { const d = x * nx + y * ny; b0 = Math.min(b0, d); b1 = Math.max(b1, d); }
+    if (a1 <= b0 + 1e-6 || b1 <= a0 + 1e-6) return false;
+  }
+  return true;
+}
+function genTangram(rng, diff) {
+  const types = diff === 0 ? ['LT', 'LT', 'MT', 'SQ', 'ST'] : ['LT', 'LT', 'MT', 'ST', 'ST', 'SQ', 'PA'];
+  const order = [types[0], ...rng.shuffle(types.slice(1))];
+  const placed = [{ type: order[0], verts: tgVerts(order[0], rng.int(0, 7), false, 0, 0) }];
+  const keep = [.5, .3, .2][diff];
+  for (const type of order.slice(1)) {
+    const cands = [];
+    for (let rot = 0; rot < 8; rot++) for (const flip of type === 'PA' ? [false, true] : [false]) {
+      const base = tgVerts(type, rot, flip, 0, 0);
+      for (const P of placed) for (let i = 0; i < P.verts.length; i++) {
+        const a = P.verts[i], b = P.verts[(i + 1) % P.verts.length], lab = Math.hypot(b[0] - a[0], b[1] - a[1]);
+        for (let j = 0; j < base.length; j++) {
+          const c = base[j], d = base[(j + 1) % base.length], lcd = Math.hypot(d[0] - c[0], d[1] - c[1]);
+          if (lcd > lab + 1e-6) continue;
+          // cd precisa ser anti-paralelo a ab
+          const ux = (b[0] - a[0]) / lab, uy = (b[1] - a[1]) / lab, vx = (d[0] - c[0]) / lcd, vy = (d[1] - c[1]) / lcd;
+          if (Math.abs(ux + vx) > 1e-6 || Math.abs(uy + vy) > 1e-6) continue;
+          const anchors = Math.abs(lcd - lab) < 1e-6 ? [[b, c]] : [[b, c], [a, d]];
+          for (const [to, from] of anchors) {
+            const tx = to[0] - from[0], ty = to[1] - from[1];
+            const vs = base.map(([x, y]) => [x + tx, y + ty]);
+            if (placed.some(q => tgOverlap(q.verts, vs))) continue;
+            const all = placed.flatMap(q => q.verts).concat(vs);
+            const xs = all.map(v => v[0]), ys = all.map(v => v[1]);
+            const w = Math.max(...xs) - Math.min(...xs), hh = Math.max(...ys) - Math.min(...ys);
+            cands.push({ vs, score: w * hh + Math.abs(w - hh) * 2 + rng() * 3 });
+          }
+        }
+      }
+    }
+    if (!cands.length) return null;
+    cands.sort((p, q) => p.score - q.score);
+    const pick = cands[Math.floor(rng() * Math.max(1, cands.length * keep))];
+    placed.push({ type, verts: pick.vs });
+  }
+  // normaliza (canto superior esquerdo em 0,0)
+  const all = placed.flatMap(q => q.verts), mx = Math.min(...all.map(v => v[0])), my = Math.min(...all.map(v => v[1]));
+  placed.forEach(q => q.verts = q.verts.map(([x, y]) => [x - mx, y - my]));
+  return { slots: placed, w: Math.max(...all.map(v => v[0])) - mx, h: Math.max(...all.map(v => v[1])) - my };
+}
+function playTangram(ctx) {
+  const { rng, diff } = ctx;
+  let T = null; while (!T) T = genTangram(rng, diff);
+  const W = ctx.W, H = ctx.H;
+  const cols = 3, rows = Math.ceil(T.slots.length / cols);
+  const Vw = Math.max(T.w + 2, 13, (T.h + 2.2 + rows * 3.6) * W / H), Vh = Vw * H / W;
+  const ox = (Vw - T.w) / 2, oy = .8;
+  T.slots.forEach(sl => { sl.verts = sl.verts.map(([x, y]) => [x + ox, y + oy]); sl.c = tgCenter(sl.verts); });
+  const svg = s('svg', { viewBox: `0 0 ${Vw} ${Vh}`, width: W, height: H, style: 'position:absolute;inset:0;touch-action:none;background:#fff8ec' });
+  ctx.stage.append(svg);
+  const toPath = vs => 'M' + vs.map(v => v[0].toFixed(3) + ',' + v[1].toFixed(3)).join('L') + 'Z';
+  const sil = s('g', {});
+  T.slots.forEach(sl => sil.append(s('path', { d: toPath(sl.verts), fill: '#3d2f7a', stroke: diff === 0 ? '#7a6bc4' : '#3d2f7a', 'stroke-width': diff === 0 ? .05 : .04, 'stroke-linejoin': 'round' })));
+  svg.append(sil);
+  // peças na bandeja
+  const trayY = oy + T.h + .9, trayH = Vh - trayY - .3;
+  const cnt = {};
+  const pieces = rng.shuffle(T.slots.map(sl => sl.type)).map((type, i) => {
+    cnt[type] = (cnt[type] || 0) + 1;
+    const cx = Vw / cols * (i % cols + .5), cy = trayY + trayH / rows * (Math.floor(i / cols) + .5);
+    const ref = T.slots.find(sl => sl.type === type);
+    // fácil: mesma orientação da solução
+    let rot = 0, flip = false;
+    if (diff === 0) { for (let r = 0; r < 8; r++) if (sameShape(tgVerts(type, r, false, 0, 0), ref.verts)) { rot = r; break; } }
+    else { rot = rng.int(0, 7); flip = type === 'PA' && diff === 2 && rng() < .5; }
+    const el = s('path', { fill: TG_COLS[type][cnt[type] - 1], stroke: '#1b1340', 'stroke-width': .06, 'stroke-linejoin': 'round', style: 'cursor:grab' });
+    svg.append(el);
+    const P = { type, rot, flip, x: cx, y: cy, el, slot: null };
+    const vs = tgVerts(type, rot, flip, cx, cy), xs = vs.map(v => v[0]), ys = vs.map(v => v[1]);
+    P.x += Math.max(0, .25 - Math.min(...xs)) - Math.max(0, Math.max(...xs) - (Vw - .25));
+    P.y += Math.max(0, trayY - Math.min(...ys)) - Math.max(0, Math.max(...ys) - (Vh - .25));
+    return P;
+  });
+  function sameShape(A, B) { const ca = tgCenter(A), cb = tgCenter(B); return A.every(([x, y]) => B.some(([u, v]) => Math.hypot(x - ca[0] - (u - cb[0]), y - ca[1] - (v - cb[1])) < .06)); }
+  let last = pieces[0], hints = 0, moves = 0;
+  const verts = p => tgVerts(p.type, p.rot, p.flip, p.x, p.y);
+  const render = p => p.el.setAttribute('d', toPath(verts(p)));
+  pieces.forEach(render);
+  const upd = () => ctx.status('🧩 Tangram', 'Encaixadas: ' + pieces.filter(p => p.slot).length + '/' + pieces.length);
+  function clamp(p) { // mantém a peça dentro da tela
+    const vs = verts(p), xs = vs.map(v => v[0]), ys = vs.map(v => v[1]);
+    p.x += Math.max(0, .1 - Math.min(...xs)) - Math.max(0, Math.max(...xs) - (Vw - .1));
+    p.y += Math.max(0, .1 - Math.min(...ys)) - Math.max(0, Math.max(...ys) - (Vh - .1));
+  }
+  function snap(p) {
+    p.slot = null;
+    const vs = verts(p), c = tgCenter(vs);
+    for (const sl of T.slots) {
+      if (sl.type !== p.type || pieces.some(q => q !== p && q.slot === sl)) continue;
+      if (Math.hypot(sl.c[0] - c[0], sl.c[1] - c[1]) < .75 && sameShape(vs, sl.verts)) { p.x += sl.c[0] - c[0]; p.y += sl.c[1] - c[1]; p.slot = sl; ctx.sfx('good'); break; }
+    }
+    render(p);
+  }
+  function covered() { // aceita soluções alternativas
+    let tgt = 0, bad = 0;
+    const pv = pieces.map(verts);
+    for (let x = ox + .05; x < ox + T.w; x += .1) for (let y = oy + .05; y < oy + T.h; y += .1) {
+      const inT = T.slots.some(sl => inPoly(x, y, sl.verts)), inP = pv.some(v => inPoly(x, y, v));
+      if (inT) tgt++; if (inT !== inP) bad++;
+    }
+    const inside = pv.every(v => { const c = tgCenter(v); return c[0] > ox - .2 && c[0] < ox + T.w + .2 && c[1] > oy - .2 && c[1] < oy + T.h + .2; });
+    return inside && bad / tgt < .02;
+  }
+  function check() {
+    upd();
+    if (pieces.every(p => p.slot) || covered()) ctx.win(hints ? Math.max(1, 3 - hints) : moves <= pieces.length * 3 ? 3 : 2);
+  }
+  pieces.forEach(p => {
+    let sx, sy, moved, px, py;
+    onDrag(p.el, {
+      start: e => { if (ctx.done) return false; sx = e.clientX; sy = e.clientY; moved = false; px = p.x; py = p.y; svg.append(p.el); last = p; p.slot = null; },
+      move: e => {
+        if (!moved && Math.hypot(e.clientX - sx, e.clientY - sy) < 6) return;
+        moved = true; const k = Vw / svg.getBoundingClientRect().width;
+        p.x = px + (e.clientX - sx) * k; p.y = py + (e.clientY - sy) * k; render(p);
+      },
+      end: () => { moves++; if (!moved) { p.rot = (p.rot + 1) % 8; ctx.sfx('tap'); } clamp(p); snap(p); check(); }
+    });
+  });
+  upd();
+  ctx.tool('↔ Virar', () => { if (ctx.done || !last) return; last.flip = !last.flip; snap(last); check(); });
+  ctx.tool('💡 Dica', () => {
+    if (ctx.done) return;
+    const p = pieces.find(p => !p.slot); if (!p) return;
+    const sl = T.slots.find(sl => sl.type === p.type && !pieces.some(q => q.slot === sl)); if (!sl) return;
+    hints++;
+    for (const flip of [false, true]) for (let r = 0; r < 8; r++) if (sameShape(tgVerts(p.type, r, flip, 0, 0), sl.verts)) { p.rot = r; p.flip = flip; p.x = sl.c[0]; p.y = sl.c[1]; snap(p); check(); return; }
+  });
+}
+registerMode({
+  id: 'tangram', parent: 'logic', name: 'Tangram', icon: '🔷',
+  help: 'Arraste as peças para cobrir a figura escura. Toque numa peça para girar; use "Virar" para espelhar.',
+  start: playTangram,
+});
+
+/* ===================== TORRE DE HANÓI ===================== */
+function playHanoi(ctx) {
+  const { rng, diff, level } = ctx;
+  const n = [3, 4, 5][diff] + (level >= [8, 6, 5][diff] ? 1 : 0) + (diff === 2 && level >= 12 ? 1 : 0);
+  const N3 = 3 ** n;
+  const enc = st => st.reduce((a, p, i) => a + p * 3 ** i, 0); // st[i] = pino do disco i (0 = menor)
+  const dec = c => Array.from({ length: n }, (_, i) => Math.floor(c / 3 ** i) % 3);
+  const neighbors = c => {
+    const st = dec(c), top = [n, n, n]; for (let i = n - 1; i >= 0; i--) top[st[i]] = i;
+    const out = []; for (let a = 0; a < 3; a++) for (let b = 0; b < 3; b++) if (a !== b && top[a] < top[b]) { const ns = st.slice(); ns[top[a]] = b; out.push([enc(ns), a, b]); }
+    return out;
+  };
+  const classic = diff === 0 && level <= 2 || level === 1;
+  const goalPeg = classic ? 2 : rng.int(0, 2);
+  const goal = enc(Array(n).fill(goalPeg));
+  const dist = new Int16Array(N3).fill(-1); dist[goal] = 0; const q = [goal];
+  for (let i = 0; i < q.length; i++) for (const [m] of neighbors(q[i])) if (dist[m] < 0) { dist[m] = dist[q[i]] + 1; q.push(m); }
+  let start;
+  if (classic) start = enc(Array(n).fill(0));
+  else { const minD = Math.floor((2 ** n - 1) * .55); let t = 0; do { start = rng.int(0, N3 - 1); } while (dist[start] < minD && ++t < 500); }
+  let cur = start, sel = -1, moves = 0, hints = 0; const opt = dist[start];
+  const wrap = h('div', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', padding: '20px 6px 30px', background: 'linear-gradient(180deg,#ffe9c7,#ffd28a)' } });
+  ctx.stage.append(wrap);
+  const pegW = (ctx.W - 24) / 3, maxDW = pegW - 8, dh = Math.min(34, (ctx.H - 120) / (n + 1));
+  const DCOL = ['#ff5c8a', '#ffb020', '#22b573', '#2f80ff', '#9b5cff', '#ff7a45', '#00a8c6'];
+  const pegs = [0, 1, 2].map(i => {
+    const el = h('div', { style: { position: 'relative', width: pegW + 'px', height: (dh * (n + 1.6)) + 'px', display: 'flex', flexDirection: 'column-reverse', alignItems: 'center', cursor: 'pointer' } });
+    el.addEventListener('pointerdown', e => { e.preventDefault(); tap(i); });
+    wrap.append(el); return el;
+  });
+  function render(hl) {
+    const st = dec(cur);
+    pegs.forEach((el, p) => {
+      el.innerHTML = '';
+      el.append(h('div', { style: { position: 'absolute', bottom: 0, left: '50%', width: '12px', marginLeft: '-6px', height: '100%', borderRadius: '6px', background: p === goalPeg ? '#8b5a2b' : '#a87444' } }));
+      el.append(h('div', { style: { position: 'absolute', bottom: '-12px', left: '4px', right: '4px', height: '12px', borderRadius: '6px', background: '#6d4320' } }));
+      el.append(h('div', { style: { position: 'absolute', top: '-26px', left: 0, right: 0, textAlign: 'center', fontSize: '20px' } }, p === goalPeg ? '🏁' : ''));
+      if (hl && (hl[0] === p || hl[1] === p)) el.append(h('div', { style: { position: 'absolute', inset: '-4px', borderRadius: '12px', border: `4px dashed ${hl[0] === p ? '#e23b5a' : '#22b573'}`, pointerEvents: 'none' } }));
+      const discs = []; for (let i = n - 1; i >= 0; i--) if (st[i] === p) discs.push(i);
+      discs.forEach((d, k) => {
+        const lifted = sel === p && k === discs.length - 1;
+        el.append(h('div', { style: { position: 'relative', zIndex: 2, width: (maxDW * (.3 + .7 * (d + 1) / n)) + 'px', height: dh - 3 + 'px', marginBottom: k === 0 ? '0' : '3px', borderRadius: dh / 2 + 'px', background: DCOL[d % DCOL.length], boxShadow: 'inset 0 -4px 0 rgba(0,0,0,.2)', transform: lifted ? `translateY(-${dh * 1.2}px)` : '', transition: 'transform .12s' } }));
+      });
+    });
+    ctx.status('🗼 Hanói: ' + n + ' discos', 'Jogadas: ' + moves + ' (meta ' + opt + ')');
+  }
+  function tap(p) {
+    if (ctx.done) return;
+    const st = dec(cur), top = [n, n, n]; for (let i = n - 1; i >= 0; i--) top[st[i]] = i;
+    if (sel < 0) { if (top[p] < n) { sel = p; ctx.sfx('pick'); } render(); return; }
+    if (p === sel) { sel = -1; render(); return; }
+    if (top[sel] < top[p]) { const ns = st.slice(); ns[top[sel]] = p; cur = enc(ns); moves++; ctx.sfx('drop'); sel = -1; render(); if (cur === goal) ctx.win(hints ? 1 : moves <= opt ? 3 : moves <= opt * 1.5 + 2 ? 2 : 1, `Feito em ${moves} jogadas (mínimo ${opt}).`); }
+    else { ctx.sfx('bad'); ctx.shake(pegs[p]); ctx.toast('Disco maior não vai sobre um menor!', 1000); sel = -1; render(); }
+  }
+  render();
+  ctx.tool('💡 Dica', () => { if (ctx.done) return; const nb = neighbors(cur).find(([m]) => dist[m] === dist[cur] - 1); if (!nb) return; hints++; sel = -1; render([nb[1], nb[2]]); });
+}
+registerMode({
+  id: 'hanoi', parent: 'logic', name: 'Torre de Hanói', icon: '🗼',
+  help: 'Leve todos os discos para o pino 🏁. Mova um disco por vez e nunca coloque um disco maior sobre um menor.',
+  start: playHanoi,
 });
 
 /* ===================== FÍSICA: Acorde a Caixa ===================== */
@@ -1305,6 +1958,361 @@ registerMode({
   start(ctx) { (ctx.level % 2 ? playWordSearch : playAnagram)(ctx); }
 });
 
+/* ===================== TRIVIA: banco ampliado ===================== */
+// formato: pergunta|certa|errada1|errada2|errada3|categoria
+const TRIVIA_EXTRA = [`
+Qual animal pula e carrega o filhote numa bolsa na barriga?|Canguru|Coala|Coelho|Sapo|Bichos
+Qual é o maior animal terrestre?|Elefante|Girafa|Hipopótamo|Rinoceronte|Bichos
+Que animal faz "au au"?|Cachorro|Gato|Pato|Galinha|Bichos
+Qual destes animais vive na Antártida?|Pinguim|Urso-polar|Camelo|Leão|Bichos
+Quantas patas tem um inseto?|6|4|8|10|Bichos
+Qual animal carrega uma carapaça nas costas e anda devagar?|Tartaruga|Coelho|Guepardo|Cavalo|Bichos
+Qual é o animal mais rápido em terra?|Guepardo|Leão|Cavalo|Zebra|Bichos
+O que as vacas comem principalmente?|Capim|Carne|Peixe|Insetos|Bichos
+Qual destes animais bota ovos?|Galinha|Vaca|Cachorro|Gato|Bichos
+Qual é o filhote do cavalo?|Potro|Bezerro|Cordeiro|Leitão|Bichos
+Qual é o filhote da galinha?|Pintinho|Patinho|Cabrito|Potro|Bichos
+Qual animal macho tem uma grande juba?|Leão|Tigre|Urso|Lobo|Bichos
+Qual animal é famoso por mudar de cor?|Camaleão|Sapo|Cobra|Tartaruga|Bichos
+Qual destes animais é um réptil?|Jacaré|Sapo|Golfinho|Pato|Bichos
+Com qual parte do corpo sentimos cheiro?|Nariz|Orelha|Boca|Mão|Corpo
+Com qual parte do corpo ouvimos?|Orelhas|Olhos|Nariz|Joelhos|Corpo
+Quantos dedos temos em uma mão?|5|4|6|10|Corpo
+Qual órgão bombeia o sangue pelo corpo?|Coração|Pulmão|Estômago|Cérebro|Corpo
+Para que servem os dentes?|Mastigar|Ouvir|Enxergar|Respirar|Corpo
+Que cor se forma misturando vermelho e amarelo?|Laranja|Verde|Roxo|Rosa|Cores
+Que cor se forma misturando vermelho e azul?|Roxo|Verde|Laranja|Amarelo|Cores
+Que cor se forma misturando branco e vermelho?|Rosa|Laranja|Roxo|Cinza|Cores
+De que cor é a banana madura?|Amarela|Azul|Roxa|Vermelha|Cores
+De que cor é o sangue?|Vermelho|Azul|Verde|Amarelo|Cores
+Quantos lados tem um quadrado?|4|3|5|6|Formas
+Qual destas formas não tem cantos?|Círculo|Quadrado|Triângulo|Retângulo|Formas
+Quantos lados tem um pentágono?|5|4|6|8|Formas
+Uma bola de futebol tem forma de...|Esfera|Cubo|Cone|Pirâmide|Formas
+Um dado de jogo tem forma de...|Cubo|Esfera|Cilindro|Cone|Formas
+Quanto é 2 + 2?|4|3|5|6|Contas
+Quanto é 9 + 6?|15|14|16|13|Contas
+Quanto é 20 − 8?|12|11|13|10|Contas
+Quanto é 6 × 2?|12|8|10|14|Contas
+Quanto é 5 × 5?|25|20|30|15|Contas
+Quanto é o dobro de 7?|14|12|16|17|Contas
+Quanto é 100 − 1?|99|98|90|101|Contas
+Que número vem depois do 19?|20|18|21|29|Contas
+Quanto é 8 + 8?|16|15|18|14|Contas
+Quanto é 12 ÷ 3?|4|3|6|9|Contas
+Quantos centavos tem 1 real?|100|10|50|1.000|Contas
+Quantas horas tem um dia?|24|12|20|48|Tempo
+Qual mês vem depois de janeiro?|Fevereiro|Março|Dezembro|Abril|Tempo
+Quantos dias tem fevereiro num ano comum?|28|30|31|29|Tempo
+Quantos meses tem meio ano?|6|4|5|8|Tempo
+Quantas estações do ano existem?|4|2|3|5|Tempo
+Em que estação muitas árvores perdem as folhas?|Outono|Verão|Primavera|Inverno|Natureza
+Em que estação do ano as flores costumam desabrochar?|Primavera|Inverno|Outono|Verão|Natureza
+O que aparece no céu quando faz sol depois da chuva?|Arco-íris|Cometa|Eclipse|Aurora|Natureza
+O gelo é água no estado...|Sólido|Líquido|Gasoso|Quente|Natureza
+O vapor é água no estado...|Gasoso|Sólido|Líquido|Congelado|Natureza
+Do que uma planta precisa para crescer?|Água e luz do sol|Só escuridão|Refrigerante|Areia seca|Natureza
+Qual parte da planta fica debaixo da terra?|Raiz|Flor|Folha|Fruto|Natureza
+De que cor são as folhas da maioria das árvores?|Verdes|Azuis|Roxas|Pretas|Natureza
+Qual destes NÃO é uma fruta?|Cenoura|Maçã|Uva|Pera|Comidas
+De qual fruta se faz o guacamole?|Abacate|Maçã|Banana|Manga|Comidas
+De qual animal vem o leite mais consumido no Brasil?|Vaca|Galinha|Porco|Peixe|Comidas
+Qual alimento é feito de milho estourado?|Pipoca|Pão|Bolo|Arroz|Comidas
+Qual destas é uma verdura de folha?|Alface|Cenoura|Batata|Beterraba|Comidas
+O chocolate é feito a partir de qual fruto?|Cacau|Café|Coco|Amendoim|Comidas
+O pão francês é feito principalmente de...|Farinha de trigo|Arroz|Açúcar|Leite|Comidas
+Qual fruta tem casca verde e polpa vermelha com sementes pretas?|Melancia|Kiwi|Mamão|Abacate|Comidas
+Qual é o maior estado do Brasil em área?|Amazonas|Pará|Mato Grosso|Bahia|Brasil
+Quais são as cores da bandeira do Brasil?|Verde, amarelo, azul e branco|Vermelho e branco|Azul e branco|Verde e vermelho|Brasil
+Qual destes é um instrumento de cordas?|Violão|Tambor|Flauta|Trompete|Música
+Qual instrumento se toca com baquetas?|Bateria|Violino|Piano|Flauta|Música
+Quantas cordas tem um violão comum?|6|4|5|8|Música
+O que usamos para escrever no quadro-negro?|Giz|Tesoura|Cola|Régua|Escola
+Para que serve o guarda-chuva?|Proteger da chuva|Medir a temperatura|Ver as horas|Cozinhar|Coisas
+Qual meio de transporte anda sobre trilhos?|Trem|Avião|Navio|Bicicleta|Transportes
+Qual destes meios de transporte voa?|Avião|Carro|Trem|Navio|Transportes
+O que os astronautas usam para ir ao espaço?|Foguete|Submarino|Balão|Trem|Espaço
+Quem apaga incêndios?|Bombeiro|Médico|Padeiro|Carteiro|Profissões
+Quem cuida dos nossos dentes?|Dentista|Veterinário|Professor|Pintor|Profissões
+Quem cuida da saúde dos animais?|Veterinário|Dentista|Piloto|Arquiteto|Profissões
+Quem pilota um avião?|Piloto|Motorista|Marinheiro|Maquinista|Profissões
+Onde vivem as abelhas?|Colmeia|Ninho|Toca|Aquário|Bichos
+O que a aranha tece?|Teia|Ninho|Casulo|Colmeia|Bichos
+Qual animal solta tinta para fugir dos inimigos?|Polvo|Peixe-palhaço|Tartaruga|Golfinho|Bichos
+Qual é o maior peixe do mundo?|Tubarão-baleia|Baleia-azul|Tubarão-branco|Atum|Bichos
+Qual destes animais é um anfíbio?|Sapo|Jacaré|Cobra|Lagarto|Bichos
+Quantas asas tem uma borboleta?|4|2|6|8|Bichos
+A arara é um tipo de...|Ave|Peixe|Mamífero|Réptil|Bichos
+Qual animal tem espinhos para se proteger?|Porco-espinho|Coelho|Esquilo|Hamster|Bichos
+Qual destes animais costuma ficar acordado à noite?|Coruja|Galinha|Borboleta|Abelha|Bichos
+Qual animal é chamado de "melhor amigo do homem"?|Cachorro|Gato|Cavalo|Papagaio|Bichos
+Quantas patas tem um cachorro?|4|2|6|8|Bichos
+A Terra gira em torno do...|Sol|Lua|Marte|Júpiter|Espaço
+Quantos planetas há no Sistema Solar?|8|9|7|10|Espaço
+Qual planeta é o mais próximo do Sol?|Mercúrio|Vênus|Terra|Marte|Espaço
+Qual é o oposto de "alto"?|Baixo|Grande|Largo|Gordo|Palavras
+Qual é o oposto de "dia"?|Noite|Tarde|Manhã|Sol|Palavras
+Qual destas palavras rima com "pão"?|Mão|Pé|Sol|Casa|Palavras
+Quantas letras tem o alfabeto da língua portuguesa?|26|23|24|30|Palavras
+Qual é a primeira letra do alfabeto?|A|B|Z|E|Palavras
+Qual é a última letra do alfabeto?|Z|Y|X|W|Palavras
+Quantas vogais existem no alfabeto?|5|4|6|7|Palavras
+Qual destas palavras começa com a letra B?|Bola|Casa|Dado|Pato|Palavras
+Qual é o plural de "pão"?|Pães|Pãos|Pões|Pãoes|Palavras
+Qual brinquedo sobe ao céu com o vento, preso por uma linha?|Pipa|Pião|Bola|Ioiô|Brincadeiras
+Qual esporte se joga com raquete e bolinha amarela?|Tênis|Futebol|Basquete|Vôlei|Esportes
+Em qual esporte se arremessa a bola numa cesta?|Basquete|Futebol|Natação|Judô|Esportes
+Qual festa brasileira tem fantasias e desfiles de escolas de samba?|Carnaval|Festa Junina|Natal|Páscoa|Festas
+Em qual festa se dança quadrilha?|Festa Junina|Carnaval|Ano-Novo|Halloween|Festas
+Na Páscoa é tradição ganhar ovos de...|Chocolate|Pato|Madeira|Avestruz|Festas
+Qual personagem traz presentes no Natal?|Papai Noel|Coelho da Páscoa|Saci|Curupira|Festas
+Qual personagem do folclore tem uma perna só e usa gorro vermelho?|Saci-Pererê|Curupira|Boitatá|Iara|Folclore
+Qual personagem do folclore tem os pés virados para trás?|Curupira|Saci-Pererê|Mula sem cabeça|Iara|Folclore
+Qual personagem do folclore é uma sereia dos rios?|Iara|Cuca|Boitatá|Curupira|Folclore
+O que usamos para medir a temperatura do corpo?|Termômetro|Régua|Balança|Relógio|Coisas
+O que usamos para saber o nosso peso?|Balança|Régua|Termômetro|Bússola|Coisas
+Quantos jogadores formam uma dupla?|2|3|4|1|Contas
+Qual é o animal que tem um "chifre" no nariz?|Rinoceronte|Elefante|Hipopótamo|Girafa|Bichos
+O que a vaca nos dá para beber?|Leite|Suco|Mel|Água de coco|Bichos
+`, `
+Qual animal aparece na nota de 2 reais?|Tartaruga-marinha|Arara|Onça-pintada|Garça|Brasil
+Qual animal aparece na nota de 200 reais?|Lobo-guará|Onça-pintada|Mico-leão-dourado|Tamanduá|Brasil
+Qual animal aparece na nota de 50 reais?|Onça-pintada|Garoupa|Arara|Lobo-guará|Brasil
+Qual é a capital de Portugal?|Lisboa|Porto|Coimbra|Madri|Geografia
+Qual é a capital da França?|Paris|Lyon|Marselha|Nice|Geografia
+Qual é a capital da Itália?|Roma|Milão|Veneza|Nápoles|Geografia
+Qual é a capital do Japão?|Tóquio|Quioto|Osaka|Pequim|Geografia
+Qual é a capital do Chile?|Santiago|Valparaíso|Lima|Bogotá|Geografia
+Qual é a capital da Bahia?|Salvador|Feira de Santana|Ilhéus|Recife|Brasil
+Qual é a capital do Rio Grande do Sul?|Porto Alegre|Caxias do Sul|Pelotas|Florianópolis|Brasil
+Qual é a capital de Minas Gerais?|Belo Horizonte|Uberlândia|Juiz de Fora|Ouro Preto|Brasil
+Qual é a capital do Amazonas?|Manaus|Belém|Porto Velho|Rio Branco|Brasil
+Qual é a capital do Paraná?|Curitiba|Londrina|Maringá|Foz do Iguaçu|Brasil
+Qual é a capital de Pernambuco?|Recife|Olinda|Caruaru|Natal|Brasil
+Qual é a capital do Ceará?|Fortaleza|Natal|São Luís|Teresina|Brasil
+Qual é a capital de Santa Catarina?|Florianópolis|Joinville|Blumenau|Curitiba|Brasil
+Em qual país fica a Torre Eiffel?|França|Itália|Inglaterra|Bélgica|Geografia
+Em qual cidade fica o Coliseu?|Roma|Atenas|Paris|Madri|História
+Em qual país fica Machu Picchu?|Peru|Bolívia|México|Chile|Geografia
+Qual oceano banha o litoral brasileiro?|Atlântico|Pacífico|Índico|Ártico|Geografia
+Qual é o país mais populoso da América do Sul?|Brasil|Argentina|Colômbia|Peru|Geografia
+Em qual continente fica a Austrália?|Oceania|Ásia|África|Europa|Geografia
+Qual país é conhecido como "Terra do Sol Nascente"?|Japão|China|Coreia do Sul|Tailândia|Geografia
+Qual é a moeda dos Estados Unidos?|Dólar|Euro|Libra|Peso|Geografia
+Qual é a moeda usada na maior parte da União Europeia?|Euro|Dólar|Libra|Franco|Geografia
+Qual é a língua oficial de Angola?|Português|Inglês|Francês|Espanhol|Geografia
+Qual cordilheira atravessa a América do Sul de norte a sul?|Andes|Alpes|Himalaia|Rochosas|Geografia
+Qual é o maior rio do mundo em volume de água?|Amazonas|Nilo|Mississippi|Yangtzé|Geografia
+Qual é o ponto mais alto do Brasil?|Pico da Neblina|Pico da Bandeira|Monte Roraima|Pico Paraná|Brasil
+Em qual estado ficam as Cataratas do Iguaçu, do lado brasileiro?|Paraná|Santa Catarina|Mato Grosso do Sul|São Paulo|Brasil
+Qual bioma brasileiro é uma das maiores planícies alagáveis do mundo?|Pantanal|Cerrado|Caatinga|Pampa|Brasil
+Qual bioma é típico do sertão nordestino?|Caatinga|Pampa|Mata Atlântica|Pantanal|Brasil
+Quem foi o primeiro presidente do Brasil?|Deodoro da Fonseca|Getúlio Vargas|Floriano Peixoto|Prudente de Morais|História
+Quem proclamou a Independência do Brasil?|Dom Pedro I|Dom Pedro II|Tiradentes|Dom João VI|História
+O apelido "Tiradentes" vem de qual atividade que ele exercia?|Arrancar dentes|Dar tiros|Puxar carroças|Tirar sal|História
+Quem descobriu a penicilina?|Alexander Fleming|Louis Pasteur|Marie Curie|Oswaldo Cruz|Ciência
+Quem é o autor de "O Pequeno Príncipe"?|Antoine de Saint-Exupéry|Júlio Verne|Victor Hugo|Charles Perrault|Literatura
+Quem escreveu "Romeu e Julieta"?|William Shakespeare|Charles Dickens|Jane Austen|Miguel de Cervantes|Literatura
+Quem escreveu "Dom Quixote"?|Miguel de Cervantes|William Shakespeare|Dante Alighieri|Luís de Camões|Literatura
+Quem criou a Turma da Mônica?|Mauricio de Sousa|Ziraldo|Monteiro Lobato|Henfil|Literatura
+Quem criou "O Menino Maluquinho"?|Ziraldo|Mauricio de Sousa|Monteiro Lobato|Ruth Rocha|Literatura
+Quem pintou "O Grito"?|Edvard Munch|Van Gogh|Pablo Picasso|Salvador Dalí|Arte
+Quem pintou o teto da Capela Sistina?|Michelangelo|Leonardo da Vinci|Rafael|Donatello|Arte
+Qual artista é famoso pelos relógios "derretendo"?|Salvador Dalí|Pablo Picasso|Claude Monet|Andy Warhol|Arte
+Quem pintou "Operários"?|Tarsila do Amaral|Candido Portinari|Anita Malfatti|Di Cavalcanti|Arte
+Qual é o gás mais abundante na atmosfera da Terra?|Nitrogênio|Oxigênio|Gás carbônico|Argônio|Ciência
+Qual é a estrela mais próxima da Terra?|Sol|Alfa Centauri|Sirius|Estrela Polar|Espaço
+Quanto tempo a Terra leva para dar uma volta em torno do Sol?|Cerca de 365 dias|24 horas|30 dias|12 anos|Espaço
+O que causa principalmente as marés dos oceanos?|A Lua|O vento|Os peixes|Os rios|Ciência
+Qual parte do olho dá cor a ele?|Íris|Pupila|Retina|Córnea|Corpo humano
+Qual vitamina o corpo produz com a luz do sol?|Vitamina D|Vitamina C|Vitamina A|Vitamina B12|Corpo humano
+Qual órgão filtra o sangue e produz a urina?|Rins|Fígado|Pulmões|Estômago|Corpo humano
+Quantos dentes tem a dentição completa de um adulto?|32|28|30|36|Corpo humano
+Qual tipo sanguíneo é conhecido como "doador universal"?|O negativo|AB positivo|A positivo|B negativo|Corpo humano
+Onde é absorvida a maior parte dos nutrientes dos alimentos?|Intestino delgado|Estômago|Boca|Esôfago|Corpo humano
+Qual é o único mamífero capaz de voar de verdade?|Morcego|Esquilo-voador|Pinguim|Avestruz|Bichos
+A baleia é um...|Mamífero|Peixe|Anfíbio|Réptil|Bichos
+Qual ave é a mais rápida do mundo em mergulho?|Falcão-peregrino|Águia-real|Avestruz|Beija-flor|Bichos
+Qual é a maior ave do mundo?|Avestruz|Emu|Condor|Albatroz|Bichos
+Como se chama o filhote do sapo?|Girino|Alevino|Lagarta|Pintinho|Bichos
+Qual é o maior felino do mundo?|Tigre|Leão|Onça-pintada|Leopardo|Bichos
+Qual é o maior felino das Américas?|Onça-pintada|Puma|Jaguatirica|Leopardo|Bichos
+O que é um animal herbívoro?|Que come plantas|Que come carne|Que come de tudo|Que não come|Bichos
+Qual destes mamíferos bota ovos?|Ornitorrinco|Morcego|Golfinho|Canguru|Bichos
+Quantos quilos tem uma tonelada?|1.000|100|10.000|500|Matemática
+Quantos centímetros tem um metro?|100|10|1.000|50|Matemática
+Quanto é 25% de 200?|50|25|75|100|Matemática
+Qual é o próximo número primo depois de 7?|11|9|13|8|Matemática
+Quanto é 7 × 8?|56|54|48|64|Matemática
+Quanto é 144 ÷ 12?|12|11|14|10|Matemática
+Quantos minutos há em 2 horas e meia?|150|120|130|250|Matemática
+Quanto é 3 ao quadrado?|9|6|12|27|Matemática
+Qual número romano representa 10?|X|V|L|C|Matemática
+Qual número romano representa 50?|L|C|D|X|Matemática
+Quanto mede a soma dos ângulos internos de um triângulo?|180°|90°|360°|270°|Matemática
+Quantos zeros tem o número um milhão?|6|5|7|9|Matemática
+Quantos anos tem uma década?|10|100|5|1.000|Tempo
+Quantos anos tem um século?|100|10|1.000|50|Tempo
+Em que ano começou o século XXI?|2001|2000|1999|2010|Tempo
+Quantos jogadores de cada time ficam em quadra no vôlei?|6|5|7|11|Esportes
+Quantos jogadores de cada time ficam em quadra no basquete?|5|6|7|4|Esportes
+De quantos em quantos anos acontecem os Jogos Olímpicos de Verão?|4|2|3|5|Esportes
+Quantos anéis tem o símbolo olímpico?|5|4|6|7|Esportes
+Em qual jogo existe o "xeque-mate"?|Xadrez|Damas|Tênis|Golfe|Esportes
+Qual esporte é praticado no tatame, com quimono e faixas coloridas?|Judô|Esgrima|Remo|Polo|Esportes
+Em qual país surgiu o futebol moderno?|Inglaterra|Brasil|Itália|Espanha|Esportes
+Quem é conhecido como "Rei do Futebol"?|Pelé|Garrincha|Zico|Maradona|Esportes
+Quem é conhecido como "Rei do Baião"?|Luiz Gonzaga|Dominguinhos|Gilberto Gil|Jackson do Pandeiro|Música
+Quem é conhecido como "Rei do Pop"?|Michael Jackson|Elvis Presley|Prince|Freddie Mercury|Música
+Quem é conhecido como "Rei do Rock"?|Elvis Presley|Michael Jackson|Chuck Berry|Mick Jagger|Música
+Qual banda britânica gravou "Hey Jude"?|The Beatles|Rolling Stones|Queen|Pink Floyd|Música
+Qual estilo musical tem João Gilberto e Tom Jobim como ícones?|Bossa nova|Forró|Frevo|Axé|Música
+O frevo é um ritmo típico de qual estado?|Pernambuco|Bahia|Ceará|Maranhão|Música
+Quantas notas musicais há na escala de dó a si?|7|8|5|12|Música
+Qual instrumento do samba é um pequeno tambor com platinelas?|Pandeiro|Cuíca|Agogô|Surdo|Música
+O festival do Boi-Bumbá de Parintins acontece em qual estado?|Amazonas|Pará|Maranhão|Acre|Brasil
+Qual cidade foi capital do Brasil antes de Brasília?|Rio de Janeiro|Salvador|São Paulo|Belo Horizonte|História
+Qual foi a primeira capital do Brasil?|Salvador|Rio de Janeiro|Recife|São Vicente|História
+Em que ano Brasília foi inaugurada?|1960|1950|1964|1945|História
+Qual arquiteto projetou os principais prédios de Brasília?|Oscar Niemeyer|Lúcio Costa|Burle Marx|Lina Bo Bardi|Arte
+Qual é a cidade mais populosa do Brasil?|São Paulo|Rio de Janeiro|Brasília|Salvador|Brasil
+Qual país vizinho tem Montevidéu como capital?|Uruguai|Paraguai|Argentina|Chile|Geografia
+Qual é o símbolo químico do ferro?|Fe|F|Fr|Ir|Ciência
+Qual é o símbolo químico do oxigênio?|O|Ox|Og|Oi|Ciência
+A quantos graus Celsius a água ferve ao nível do mar?|100 °C|90 °C|80 °C|120 °C|Ciência
+A quantos graus Celsius a água congela?|0 °C|10 °C|−10 °C|4 °C|Ciência
+Qual instrumento indica a direção norte?|Bússola|Barômetro|Telescópio|Termômetro|Ciência
+Qual cientista ficou famoso pela história da maçã e da gravidade?|Isaac Newton|Albert Einstein|Galileu Galilei|Charles Darwin|Ciência
+Quem foi a primeira mulher a ganhar um Prêmio Nobel?|Marie Curie|Rosalind Franklin|Ada Lovelace|Florence Nightingale|Ciência
+Quem é chamado de "Pai da Aviação" no Brasil?|Santos Dumont|Irmãos Wright|Bartolomeu de Gusmão|Gago Coutinho|História
+Qual o nome do avião de Santos Dumont que voou em Paris em 1906?|14-Bis|Demoiselle|Flyer|Spirit of St. Louis|História
+Qual empresa criou o iPhone?|Apple|Samsung|Microsoft|Google|Tecnologia
+O que significa a sigla "www"?|World Wide Web|World Web Work|Wide World Web|Web World Wide|Tecnologia
+Qual metal é líquido em temperatura ambiente?|Mercúrio|Chumbo|Ferro|Alumínio|Ciência
+Qual planeta tem a famosa Grande Mancha Vermelha?|Júpiter|Marte|Saturno|Netuno|Espaço
+Em qual continente fica o deserto do Saara?|África|Ásia|Oceania|América|Geografia
+Qual país tem formato parecido com uma bota?|Itália|Espanha|Grécia|Portugal|Geografia
+Qual cor resulta da mistura de todas as cores da luz?|Branco|Preto|Marrom|Cinza|Ciência
+`, `
+Qual elemento químico tem o símbolo K?|Potássio|Criptônio|Cálcio|Carbono|Ciência
+Qual é o símbolo químico da prata?|Ag|Au|Pt|Pb|Ciência
+Qual é o símbolo químico do chumbo?|Pb|Ch|Cb|Pl|Ciência
+Qual é o pH da água pura a 25 °C?|7|0|14|5|Ciência
+Qual partícula do átomo tem carga negativa?|Elétron|Próton|Nêutron|Fóton|Ciência
+Quem organizou a tabela periódica em 1869?|Dmitri Mendeleiev|Antoine Lavoisier|John Dalton|Niels Bohr|Ciência
+Quem é considerado o pai da química moderna?|Antoine Lavoisier|Dmitri Mendeleiev|Robert Boyle|John Dalton|Ciência
+Qual é a fórmula do gás carbônico?|CO₂|CO|CH₄|O₃|Ciência
+O que mede a escala Richter?|Magnitude de terremotos|Velocidade do vento|Dureza de minerais|Intensidade da luz|Ciência
+O que mede a escala de Mohs?|Dureza de minerais|Terremotos|Acidez|Temperatura|Ciência
+Qual é o mineral mais duro da escala de Mohs?|Diamante|Quartzo|Topázio|Coríndon|Ciência
+Qual organela é responsável pela respiração celular?|Mitocôndria|Ribossomo|Complexo de Golgi|Lisossomo|Ciência
+Qual molécula carrega a informação genética?|DNA|ATP|Glicose|Hemoglobina|Ciência
+Quem descobriu as leis da hereditariedade estudando ervilhas?|Gregor Mendel|Charles Darwin|Louis Pasteur|Jean-Baptiste Lamarck|Ciência
+Qual é o maior órgão interno do corpo humano?|Fígado|Pulmão|Intestino|Coração|Corpo humano
+Quantas cavidades tem o coração humano?|4|2|3|6|Corpo humano
+Qual hormônio, produzido pelo pâncreas, regula a glicose no sangue?|Insulina|Adrenalina|Cortisol|Melatonina|Corpo humano
+Qual osso forma a testa?|Frontal|Occipital|Temporal|Parietal|Corpo humano
+Qual planeta tem a rotação mais lenta, com o dia mais longo?|Vênus|Mercúrio|Marte|Netuno|Espaço
+Qual planeta gira "deitado", com o eixo muito inclinado?|Urano|Netuno|Saturno|Júpiter|Espaço
+Qual é a maior lua de Saturno?|Titã|Europa|Ganimedes|Io|Espaço
+Qual é a maior lua do Sistema Solar?|Ganimedes|Titã|Lua|Calisto|Espaço
+Como se chama a galáxia em que vivemos?|Via Láctea|Andrômeda|Triângulo|Sombrero|Espaço
+Quanto tempo, aproximadamente, a luz do Sol leva para chegar à Terra?|8 minutos|8 segundos|1 hora|1 dia|Espaço
+Quem foi o primeiro ser humano a ir ao espaço?|Yuri Gagarin|Neil Armstrong|Valentina Tereshkova|Alan Shepard|Espaço
+Quem foi o primeiro brasileiro a ir ao espaço?|Marcos Pontes|Santos Dumont|César Lattes|Ayrton Senna|Espaço
+Em que ano terminou a Segunda Guerra Mundial?|1945|1944|1939|1950|História
+Em que ano começou a Revolução Francesa?|1789|1776|1815|1848|História
+Em que ano Cristóvão Colombo chegou à América?|1492|1500|1498|1453|História
+Qual navegador português chegou à Índia por mar em 1498?|Vasco da Gama|Pedro Álvares Cabral|Fernão de Magalhães|Bartolomeu Dias|História
+Quem comandou a expedição da primeira volta ao mundo por mar?|Fernão de Magalhães|Vasco da Gama|Cristóvão Colombo|Américo Vespúcio|História
+Qual tratado de 1494 dividiu as novas terras entre Portugal e Espanha?|Tratado de Tordesilhas|Tratado de Madri|Tratado de Versalhes|Tratado de Paris|História
+Qual presidente brasileiro criou a CLT?|Getúlio Vargas|Juscelino Kubitschek|João Goulart|Eurico Dutra|História
+Qual presidente construiu Brasília?|Juscelino Kubitschek|Getúlio Vargas|Jânio Quadros|Café Filho|História
+Em que ano foi promulgada a atual Constituição do Brasil?|1988|1985|1967|1990|História
+Quem foi o último imperador do Brasil?|Dom Pedro II|Dom Pedro I|Dom João VI|Dom Miguel|História
+Qual civilização construiu Machu Picchu?|Inca|Asteca|Maia|Olmeca|História
+Qual civilização tinha Tenochtitlán como capital?|Asteca|Inca|Maia|Tolteca|História
+Quem foi o primeiro imperador romano?|Augusto|Júlio César|Nero|Calígula|História
+Em qual cidade grega surgiu a democracia?|Atenas|Esparta|Tebas|Corinto|História
+Quem escreveu "1984"?|George Orwell|Aldous Huxley|Ray Bradbury|H. G. Wells|Literatura
+Quem escreveu "Grande Sertão: Veredas"?|João Guimarães Rosa|Graciliano Ramos|Jorge Amado|Clarice Lispector|Literatura
+Quem escreveu "Vidas Secas"?|Graciliano Ramos|Rachel de Queiroz|Jorge Amado|José Lins do Rego|Literatura
+Quem escreveu "A Hora da Estrela"?|Clarice Lispector|Cecília Meireles|Lygia Fagundes Telles|Rachel de Queiroz|Literatura
+Quem escreveu "O Cortiço"?|Aluísio Azevedo|Machado de Assis|José de Alencar|Lima Barreto|Literatura
+Quem escreveu "Iracema"?|José de Alencar|Machado de Assis|Gonçalves Dias|Castro Alves|Literatura
+Qual poeta ficou conhecido como "Poeta dos Escravos"?|Castro Alves|Gonçalves Dias|Álvares de Azevedo|Olavo Bilac|Literatura
+Quem escreveu "Memórias Póstumas de Brás Cubas"?|Machado de Assis|Lima Barreto|Raul Pompeia|Euclides da Cunha|Literatura
+Quem escreveu "Os Sertões"?|Euclides da Cunha|Graciliano Ramos|Guimarães Rosa|Monteiro Lobato|Literatura
+Quem escreveu "A Divina Comédia"?|Dante Alighieri|Petrarca|Boccaccio|Virgílio|Literatura
+Quem escreveu "Guerra e Paz"?|Liev Tolstói|Fiódor Dostoiévski|Anton Tchekhov|Ivan Turguêniev|Literatura
+Quem escreveu "Crime e Castigo"?|Fiódor Dostoiévski|Liev Tolstói|Nikolai Gógol|Aleksandr Púchkin|Literatura
+Quem escreveu "Ensaio sobre a Cegueira"?|José Saramago|Fernando Pessoa|Mia Couto|Eça de Queirós|Literatura
+Qual escritor brasileiro escreveu "O Alquimista"?|Paulo Coelho|Jorge Amado|Erico Verissimo|Rubem Fonseca|Literatura
+Quem escreveu "O Tempo e o Vento"?|Erico Verissimo|Jorge Amado|Graciliano Ramos|Mario Quintana|Literatura
+Qual filósofo grego foi professor de Alexandre, o Grande?|Aristóteles|Platão|Sócrates|Pitágoras|Filosofia
+Quem escreveu "O Príncipe"?|Nicolau Maquiavel|Thomas Hobbes|John Locke|Jean-Jacques Rousseau|Filosofia
+Qual filósofo escreveu "Penso, logo existo"?|René Descartes|Immanuel Kant|Baruch Spinoza|Voltaire|Filosofia
+Quem compôs as "Bachianas Brasileiras"?|Heitor Villa-Lobos|Carlos Gomes|Tom Jobim|Chiquinha Gonzaga|Música
+Quem compôs a ópera "O Guarani"?|Carlos Gomes|Heitor Villa-Lobos|Ernesto Nazareth|Chiquinha Gonzaga|Música
+Quem compôs a Nona Sinfonia, com o "Hino à Alegria"?|Ludwig van Beethoven|Wolfgang Amadeus Mozart|Johann Sebastian Bach|Johannes Brahms|Música
+Quem compôs "As Quatro Estações"?|Antonio Vivaldi|Johann Sebastian Bach|Georg Friedrich Händel|Joseph Haydn|Música
+Quem pintou "Guernica"?|Pablo Picasso|Joan Miró|Salvador Dalí|Francisco Goya|Arte
+Quem pintou "Moça com Brinco de Pérola"?|Johannes Vermeer|Rembrandt|Peter Paul Rubens|Jan van Eyck|Arte
+Quem esculpiu "O Pensador"?|Auguste Rodin|Michelangelo|Gian Lorenzo Bernini|Donatello|Arte
+Quem pintou "O Nascimento de Vênus"?|Sandro Botticelli|Rafael|Ticiano|Caravaggio|Arte
+Qual pintor brasileiro criou os painéis "Guerra e Paz" da sede da ONU?|Candido Portinari|Di Cavalcanti|Tarsila do Amaral|Alfredo Volpi|Arte
+Qual movimento artístico teve a Semana de 1922 como marco no Brasil?|Modernismo|Barroco|Romantismo|Realismo|Arte
+Qual é o rio mais longo da Europa?|Volga|Danúbio|Reno|Sena|Geografia
+Qual é a capital da Suíça?|Berna|Zurique|Genebra|Basileia|Geografia
+Qual é a capital do Vietnã?|Hanói|Ho Chi Minh|Bangcoc|Phnom Penh|Geografia
+Qual é a capital do Paquistão?|Islamabad|Karachi|Lahore|Cabul|Geografia
+Qual é a capital da Nigéria?|Abuja|Lagos|Acra|Nairóbi|Geografia
+Qual é a capital do Cazaquistão?|Astana|Almaty|Tashkent|Bishkek|Geografia
+Qual cidade é a sede do governo da Bolívia?|La Paz|Sucre|Santa Cruz de la Sierra|Cochabamba|Geografia
+Qual é a capital do Equador?|Quito|Guayaquil|Bogotá|Lima|Geografia
+Qual é o menor estado brasileiro em área?|Sergipe|Alagoas|Espírito Santo|Rio de Janeiro|Brasil
+Com quantos países o Brasil faz fronteira?|10|8|9|11|Brasil
+Qual estreito separa a Europa da África?|Gibraltar|Bósforo|Magalhães|Ormuz|Geografia
+Qual canal liga o Mar Mediterrâneo ao Mar Vermelho?|Canal de Suez|Canal do Panamá|Canal de Corinto|Canal da Mancha|Geografia
+Qual é o maior país da África em área?|Argélia|Sudão|República Democrática do Congo|Egito|Geografia
+Qual é o ponto mais profundo dos oceanos?|Fossa das Marianas|Fossa de Porto Rico|Fossa de Java|Fossa de Tonga|Geografia
+Qual é o deserto não polar mais seco do mundo?|Atacama|Saara|Gobi|Kalahari|Geografia
+Em qual país ficam as ruínas de Petra?|Jordânia|Egito|Israel|Síria|Geografia
+Em qual país fica o templo de Angkor Wat?|Camboja|Tailândia|Vietnã|Laos|Geografia
+Qual é a moeda do Reino Unido?|Libra esterlina|Euro|Dólar|Coroa|Geografia
+Qual é a moeda da Índia?|Rupia|Iene|Rublo|Baht|Geografia
+Qual é a moeda da Suíça?|Franco suíço|Euro|Coroa|Marco|Geografia
+Quanto é 15% de 80?|12|15|10|8|Matemática
+Qual é o valor aproximado de π (pi)?|3,14|3,41|2,71|1,61|Matemática
+Qual é a derivada de x²?|2x|x|x³/3|2|Matemática
+Quanto é 0,5 × 0,5?|0,25|1|0,5|2,5|Matemática
+Qual é o mínimo múltiplo comum de 4 e 6?|12|24|2|10|Matemática
+Quantas diagonais tem um hexágono?|9|6|12|8|Matemática
+Quanto é 7! (fatorial de 7)?|5.040|720|40.320|2.520|Matemática
+Quanto vale o logaritmo de 1.000 na base 10?|3|10|100|30|Matemática
+Qual número romano representa 1.000?|M|D|C|K|Matemática
+Quantos bits tem um byte?|8|4|16|10|Tecnologia
+Qual linguagem é usada para estruturar páginas da web?|HTML|SQL|Python|C|Tecnologia
+Quem é considerada a primeira programadora da história?|Ada Lovelace|Grace Hopper|Marie Curie|Hedy Lamarr|Tecnologia
+Qual matemático britânico ajudou a decifrar o código Enigma na Segunda Guerra?|Alan Turing|Isaac Newton|Charles Babbage|Bertrand Russell|Tecnologia
+Em que ano o Brasil sediou uma Copa do Mundo pela primeira vez?|1950|1958|1970|2014|Esportes
+Em qual cidade foram realizados os Jogos Olímpicos de 2016?|Rio de Janeiro|Londres|Tóquio|Pequim|Esportes
+Qual piloto brasileiro foi campeão de Fórmula 1 em 1988, 1990 e 1991?|Ayrton Senna|Nelson Piquet|Emerson Fittipaldi|Rubens Barrichello|Esportes
+Quantas casas tem um tabuleiro de xadrez?|64|81|100|49|Esportes
+No xadrez, qual peça se move em "L"?|Cavalo|Bispo|Torre|Dama|Esportes
+Qual é a distância oficial de uma maratona?|42,195 km|40 km|21,1 km|50 km|Esportes
+Em qual país surgiram os Jogos Olímpicos da Antiguidade?|Grécia|Itália|Egito|Turquia|Esportes
+Qual é o osso do braço que vai do ombro ao cotovelo?|Úmero|Rádio|Ulna|Clavícula|Corpo humano
+Qual é o nome científico do ser humano moderno?|Homo sapiens|Homo erectus|Homo habilis|Australopithecus|Ciência
+Qual é o maior mamífero terrestre nativo da América do Sul?|Anta|Onça-pintada|Capivara|Tamanduá-bandeira|Bichos
+Qual é o maior roedor do mundo?|Capivara|Castor|Paca|Porco-espinho|Bichos
+Qual mosquito transmite a dengue?|Aedes aegypti|Anopheles|Barbeiro|Mosca tsé-tsé|Ciência
+Qual cientista brasileiro liderou o combate à febre amarela no Rio no início do século XX?|Oswaldo Cruz|Carlos Chagas|Vital Brazil|Adolfo Lutz|Ciência
+A doença de Chagas recebeu o nome de qual cientista brasileiro?|Carlos Chagas|Oswaldo Cruz|Vital Brazil|Emílio Ribas|Ciência
+Qual país deu a Estátua da Liberdade de presente aos Estados Unidos?|França|Inglaterra|Espanha|Holanda|História
+Qual idioma tem mais falantes nativos no mundo?|Mandarim|Inglês|Espanhol|Hindi|Geografia
+`].map(block => block.trim().split('\n').map(l => { const p = l.split('|'); return [p[0], p[1], [p[2], p[3], p[4]], p[5]]; }));
+
 /* ===================== TRIVIA ===================== */
 // [pergunta, resposta certa, [erradas], categoria]
 const TRIVIA = [
@@ -1432,12 +2440,19 @@ const TRIVIA = [
 registerMode({
   id: 'trivia', name: 'Trivia', icon: '❓', bg: 'linear-gradient(135deg,#ee0979,#ff6a00)',
   desc: 'Perguntas de conhecimentos gerais',
-  help: 'Responda 5 perguntas. Acerte 3 ou mais para passar de nível. Use 50/50 uma vez por rodada.',
+  help: 'Responda 5 perguntas. Acerte 3 ou mais para passar de nível. As perguntas só se repetem depois que você vir o banco inteiro.',
   start(ctx) {
     const { diff, level } = ctx;
-    const bank = makeRng(9001 + diff).shuffle(TRIVIA[diff].map((q, i) => i));
-    const N = 5, qs = [];
-    for (let i = 0; i < N; i++) qs.push(TRIVIA[diff][bank[((level - 1) * N + i) % bank.length]]);
+    // banco completo + sorteio de perguntas ainda não vistas (só repete quando o banco acaba)
+    const bank = TRIVIA[diff].concat(TRIVIA_EXTRA[diff]);
+    const N = 5, seenAll = Store.data.seenQ = Store.data.seenQ || {};
+    let seen = new Set(seenAll[diff] || []);
+    let pool = bank.filter(q => !seen.has(hashStr(q[0])));
+    if (pool.length < N) { seen = new Set(); pool = bank.slice(); }
+    const rnd = makeRng((Math.random() * 1e9) >>> 0);
+    const qs = rnd.shuffle(pool).slice(0, N);
+    qs.forEach(q => seen.add(hashStr(q[0])));
+    seenAll[diff] = [...seen]; Store.save();
     const timeLimit = [0, 20, 15][diff];
     let idx = 0, right = 0, results = [], fifty = false, timer = null, left = 0;
     const wrap = h('div', { class: 'tv' }); ctx.stage.append(wrap);

@@ -110,7 +110,15 @@ function playLights(ctx) {
 }
 registerMode({
   id: 'logic', name: 'Lógica', icon: '🧠', bg: 'linear-gradient(135deg,#f7971e,#ffd200)',
-  desc: 'Sudoku e Apague as Luzes',
-  help: 'Níveis ímpares: Sudoku (cada número uma vez por linha, coluna e bloco). Pares: toque para inverter a luz e as vizinhas até apagar tudo.',
-  start(ctx) { (ctx.level % 2 ? playSudoku : playLights)(ctx); }
+  desc: 'Sudoku, Luzes, Tangram e Hanói', subs: ['sudoku', 'lights', 'tangram', 'hanoi'],
+});
+registerMode({
+  id: 'sudoku', parent: 'logic', name: 'Sudoku', icon: '🔢',
+  help: 'Complete a grade: cada número aparece uma vez em cada linha, coluna e bloco.',
+  start: playSudoku,
+});
+registerMode({
+  id: 'lights', parent: 'logic', name: 'Luzes', icon: '💡',
+  help: 'Toque numa lâmpada para inverter ela e as vizinhas. Apague todas!',
+  start: playLights,
 });

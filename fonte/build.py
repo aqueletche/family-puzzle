@@ -2,7 +2,7 @@ import os
 src='src'
 css=open(f'{src}/style.css').read()
 matter=open('node_modules/matter-js/build/matter.min.js').read().replace('</script','<\\/script')
-js='\n'.join(open(f'{src}/{f}').read() for f in ['core.js','m_jigsaw.js','m_screws.js','m_arrows.js','m_blocks.js','m_logic.js','m_physics.js','m_words.js','m_trivia.js'])
+js='\n'.join(open(f'{src}/{f}').read() for f in ['core.js','home.js','m_jigsaw.js','m_screws.js','m_arrows.js','m_blocks.js','m_logic.js','m_logic2.js','m_physics.js','m_words.js','m_trivia_data.js','m_trivia.js'])
 import base64, urllib.parse, shutil
 svgicon=open('icon/icon.svg').read()
 icon="data:image/svg+xml,"+urllib.parse.quote(svgicon)
@@ -52,11 +52,11 @@ open('dist/manifest.json','w').write('''{
   ]
 }
 ''')
-open('dist/sw.js','w').write('''const C = 'familypuzzle-v2';
+open('dist/sw.js','w').write('''const C = 'familypuzzle-%s';
 self.addEventListener('install', e => { e.waitUntil(caches.open(C).then(c => c.addAll(['./', './index.html', './manifest.json', './icon.svg', './icon-192.png', './icon-512.png']))); self.skipWaiting(); });
-self.addEventListener('activate', e => e.waitUntil(self.clients.claim()));
+self.addEventListener('activate', e => e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== C).map(k => caches.delete(k)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', e => { e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).then(res => { const cp = res.clone(); caches.open(C).then(c => c.put(e.request, cp)); return res; }))); });
-''')
+''' % __import__('time').strftime('%Y%m%d%H%M'))
 open('dist/icon.svg','w').write(svgicon)
 for s in (192,512): shutil.copy(f'icon/icon-{s}.png', f'dist/icon-{s}.png')
 print(len(html))

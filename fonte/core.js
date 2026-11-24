@@ -29,7 +29,16 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 const Store = {
   key: 'quebracuca.v1',
   data: { stars: {}, sound: true, diff: 0 },
-  load() { try { const d = JSON.parse(localStorage.getItem(this.key)); if (d) Object.assign(this.data, d); } catch (e) {} },
+  load() {
+    try { const d = JSON.parse(localStorage.getItem(this.key)); if (d) Object.assign(this.data, d); } catch (e) {}
+    // v1 -> v2: Lógica alternava Sudoku (ímpares) e Luzes (pares)
+    for (const k of Object.keys(this.data.stars)) {
+      const m = k.match(/^logic:(\d):(\d+)$/); if (!m) continue;
+      const l = +m[2], nk = l % 2 ? `sudoku:${m[1]}:${(l + 1) / 2}` : `lights:${m[1]}:${l / 2}`;
+      this.data.stars[nk] = Math.max(this.data.stars[nk] || 0, this.data.stars[k]); delete this.data.stars[k];
+    }
+    this.data.sub = this.data.sub || {};
+  },
   save() { try { localStorage.setItem(this.key, JSON.stringify(this.data)); } catch (e) {} },
   k(m, d, l) { return m + ':' + d + ':' + l; },
   stars(m, d, l) { return this.data.stars[this.k(m, d, l)] || 0; },
@@ -71,6 +80,9 @@ const DIFFS = ['Fácil', 'Médio', 'Difícil'];
 const MODES = [];
 function registerMode(m) { MODES.push(m); }
 function modeById(id) { return MODES.find(m => m.id === id); }
+const playable = () => MODES.filter(m => m.start);
+function groupStars(m) { return m.subs ? m.subs.reduce((a, id) => a + Store.total(id), 0) : Store.total(m.id); }
+function subOf(m) { return m.subs ? (m.subs.includes(Store.data.sub[m.id]) ? Store.data.sub[m.id] : m.subs[0]) : m.id; }
 
 /* ===================== APP ===================== */
 const App = {
@@ -106,13 +118,13 @@ const App = {
       ),
       h('div', { class: 'scroll' },
         h('button', { class: 'big-btn', onclick: () => this.surprise() }, '🎲 Surpresa! Jogar agora'),
-        h('div', { class: 'grid-modes' }, MODES.map(m => {
-          const d = Store.data.diff || 0;
-          return h('button', { class: 'mode-card', style: { background: m.bg }, onclick: () => { Sound.play('tap'); this.levels(m.id); } },
+        h('div', { class: 'grid-modes' }, MODES.filter(m => !m.parent).map(m => {
+          const d = Store.data.diff || 0, sid = subOf(m);
+          return h('button', { class: 'mode-card', style: { background: m.bg }, onclick: () => { Sound.play('tap'); this.levels(sid); } },
             h('div', { class: 'ic' }, m.icon),
             h('div', { class: 'nm' }, m.name),
             h('div', { class: 'ds' }, m.desc),
-            h('div', { class: 'pr' }, '⭐ ' + Store.total(m.id) + '  •  Nv ' + Store.unlocked(m.id, d) + ' ' + DIFFS[d][0])
+            h('div', { class: 'pr' }, '⭐ ' + groupStars(m) + (m.subs ? '  •  4 jogos' : '  •  Nv ' + Store.unlocked(m.id, d) + ' ' + DIFFS[d][0]))
           );
         })),
         h('div', { class: 'foot' }, 'Dica: adicione à tela inicial para jogar sem internet.')
@@ -122,7 +134,7 @@ const App = {
   },
 
   surprise() {
-    const m = MODES[Math.floor(Math.random() * MODES.length)];
+    const pl = playable(), m = pl[Math.floor(Math.random() * pl.length)];
     const d = Store.data.diff || 0;
     this.play(m.id, d, Store.unlocked(m.id, d));
   },
@@ -131,7 +143,7 @@ const App = {
     this.clear();
     const m = modeById(modeId);
     if (diff == null) diff = Store.data.diff || 0;
-    Store.data.diff = diff; Store.save();
+    Store.data.diff = diff; if (m.parent) Store.data.sub[m.parent] = modeId; Store.save();
     this.back = () => this.home();
     const unl = Store.unlocked(modeId, diff);
     const count = Math.max(30, Math.ceil((unl + 5) / 5) * 5);
@@ -145,8 +157,9 @@ const App = {
     this.root.append(h('div', { class: 'screen' },
       h('div', { class: 'bar' },
         h('button', { class: 'ibtn', onclick: () => this.home() }, '‹'),
-        h('h2', null, m.icon + ' ' + m.name),
+        h('h2', null, m.parent ? modeById(m.parent).icon + ' ' + modeById(m.parent).name : m.icon + ' ' + m.name),
         h('div', { class: 'ibtn', style: { background: 'none' } }, '')),
+      m.parent ? h('div', { class: 'tabs subs' }, modeById(m.parent).subs.map(id => { const sm = modeById(id); return h('button', { class: 'tab' + (id === modeId ? ' on' : ''), onclick: () => { Store.data.sub[m.parent] = id; Store.save(); this.levels(id, diff); } }, h('div', { style: { fontSize: '22px' } }, sm.icon), h('div', { style: { fontSize: '11px' } }, sm.name)); })) : null,
       h('div', { style: { textAlign: 'center', fontSize: '13px', opacity: .8, padding: '0 16px 8px' } }, m.help),
       h('div', { class: 'tabs' }, DIFFS.map((n, i) => h('button', { class: 'tab' + (i === diff ? ' on' : ''), onclick: () => this.levels(modeId, i) }, n))),
       h('div', { class: 'scroll' }, grid)

@@ -125,12 +125,19 @@ const TRIVIA = [
 registerMode({
   id: 'trivia', name: 'Trivia', icon: '❓', bg: 'linear-gradient(135deg,#ee0979,#ff6a00)',
   desc: 'Perguntas de conhecimentos gerais',
-  help: 'Responda 5 perguntas. Acerte 3 ou mais para passar de nível. Use 50/50 uma vez por rodada.',
+  help: 'Responda 5 perguntas. Acerte 3 ou mais para passar de nível. As perguntas só se repetem depois que você vir o banco inteiro.',
   start(ctx) {
     const { diff, level } = ctx;
-    const bank = makeRng(9001 + diff).shuffle(TRIVIA[diff].map((q, i) => i));
-    const N = 5, qs = [];
-    for (let i = 0; i < N; i++) qs.push(TRIVIA[diff][bank[((level - 1) * N + i) % bank.length]]);
+    // banco completo + sorteio de perguntas ainda não vistas (só repete quando o banco acaba)
+    const bank = TRIVIA[diff].concat(TRIVIA_EXTRA[diff]);
+    const N = 5, seenAll = Store.data.seenQ = Store.data.seenQ || {};
+    let seen = new Set(seenAll[diff] || []);
+    let pool = bank.filter(q => !seen.has(hashStr(q[0])));
+    if (pool.length < N) { seen = new Set(); pool = bank.slice(); }
+    const rnd = makeRng((Math.random() * 1e9) >>> 0);
+    const qs = rnd.shuffle(pool).slice(0, N);
+    qs.forEach(q => seen.add(hashStr(q[0])));
+    seenAll[diff] = [...seen]; Store.save();
     const timeLimit = [0, 20, 15][diff];
     let idx = 0, right = 0, results = [], fifty = false, timer = null, left = 0;
     const wrap = h('div', { class: 'tv' }); ctx.stage.append(wrap);
